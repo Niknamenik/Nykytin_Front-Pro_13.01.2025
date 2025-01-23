@@ -26,11 +26,23 @@ let aver_2 = parseInt(prompt("Input second one:"));
 let aver_3 = parseInt(prompt("Input third one:"));
 let average = (aver_1 + aver_2 + aver_3)/3;
 alert('The answer is: ' + average);
-let num = prompt('Enter five-digit number: ');
-let num_1 = num.at(0)
-let num_2 = num.at(1)
-let num_3 = num.at(2)
-let num_4 = num.at(-2)
-let num_5 = num.at(-1)
-num = num_1 + ' ' + num_2 + ' ' + num_3 + ' ' + num_4 + ' ' + num_5;
-alert(num)
+// let num = prompt('Enter five-digit number: ');
+// let num_1 = num.at(0)
+// let num_2 = num.at(1)
+// let num_3 = num.at(2)
+// let num_4 = num.at(-2)
+// let num_5 = num.at(-1)
+// num = num_1 + ' ' + num_2 + ' ' + num_3 + ' ' + num_4 + ' ' + num_5;
+// alert(num)
+let five = parseInt(prompt('Enter five-digit number: '));
+if (five < 10000 || five > 99999){
+    alert('Enter FIVE-digit number: ');
+} 
+let four = String(five % 10);
+let three = String((five % 100 - four)/10)
+let two = String((five % 1000 - three * 10 - four)/100)
+let one = String((five % 10000- two * 100 - three * 10 - four)/1000)
+let zero = String((five % 100000 - one * 1000 - two * 100 - three * 10 - four)/10000)
+let result = zero + ' ' + one + ' ' + two + ' ' + three + ' ' + four;
+
+console.log(result)
