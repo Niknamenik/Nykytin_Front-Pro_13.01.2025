@@ -1,48 +1,98 @@
-let name= prompt('What is your name?');
-alert('Hi, ' + name + '!' + ' How are you?')
-let plus_1 = parseInt(prompt("Let's add two numbers. Input first one"))
-let plus_2 = parseInt(prompt("Input second one"))
-let sum = plus_1 + plus_2;
-alert('The answer is: ' + sum);
-let min_1 = parseInt(prompt("Let's subtract two numbers. Input first one"))
-let min_2 = parseInt(prompt("Input second one"))
-let subtract = min_1 - min_2;
-alert('The answer is: ' + subtract);
-let mult_1 = parseInt(prompt("Let's multiply two numbers. Input first one"))
-let mult_2 = parseInt(prompt("Input second one"))
-let multiply = mult_1 * mult_2;
-alert('The answer is: ' + multiply);
-let div_1 = parseInt(prompt("Let's divide two numbers. Input first one"))
-let div_2 = parseInt(prompt("Input second one"))
-let divide = div_1 / div_2;
-alert('The answer is: ' + divide);
-let comp_1 = prompt("Let's compaire two variables. Input first one:")
-var comp_2 = prompt("Input second one:")
-let compaire = comp_1 == comp_2;
-compaire.toString();
-alert('The result: ' + compaire);
-let aver_1 = parseInt(prompt("Let's calculate the arithmetic mean! Input first one:"));
-let aver_2 = parseInt(prompt("Input second one:"));
-let aver_3 = parseInt(prompt("Input third one:"));
-let average = (aver_1 + aver_2 + aver_3)/3;
-alert('The answer is: ' + average);
-// let num = prompt('Enter five-digit number: ');
-// let num_1 = num.at(0)
-// let num_2 = num.at(1)
-// let num_3 = num.at(2)
-// let num_4 = num.at(-2)
-// let num_5 = num.at(-1)
-// num = num_1 + ' ' + num_2 + ' ' + num_3 + ' ' + num_4 + ' ' + num_5;
-// alert(num)
-let five = parseInt(prompt('Enter five-digit number: '));
-if (five < 10000 || five > 99999){
-    alert('Enter FIVE-digit number: ');
-} 
-let four = String(five % 10);
-let three = String((five % 100 - four)/10)
-let two = String((five % 1000 - three * 10 - four)/100)
-let one = String((five % 10000- two * 100 - three * 10 - four)/1000)
-let zero = String((five % 100000 - one * 1000 - two * 100 - three * 10 - four)/10000)
-let result = zero + ' ' + one + ' ' + two + ' ' + three + ' ' + four;
-
-console.log(result)
+let first;
+let second;
+if (first > second){
+    console.log('first is bigger')
+}
+if(first < second){
+    console.log('second is bigger')
+}
+else{
+    console.log('borh are equal')
+};
+//////////////////////
+let km;
+let ft;
+let ftToKm = ft * 0.000305;
+if(km < ft){
+    console.log('ft is longer')
+}
+if(km > ft ){
+    console.log('km is longer')
+}
+else{
+    console.log('equal')
+}
+////////////////////////
+let a;
+let b;
+if(a % b === 0){
+    console.log('b is divider')
+}
+if(b % a === 0){
+    console.log('a is divider')
+}
+else{
+    console.log('division with remainder')
+}
+/////////////
+let some;
+let theLast = some % 10;
+console.log(theLast)
+if (theLast % 2 === 0){
+    console.log('even number')
+}
+else{
+    console.log('number is not even')
+};
+/////////////////
+let binNumber;
+let two = binNumber % 10;
+let one = (binNumber % 100 - two)/10;
+if(one > two){
+    console.log('one is bigger')
+}
+if(two > one){
+    console.log('two is bigger')
+}
+else{
+    console.log('onw and two are even')
+};
+//////////////////
+let threedigit = 123;
+let threeT = threedigit % 10;
+let threeTwo = (threedigit % 100 - threeT)/10;
+let threeOne = (threedigit % 1000 - (threeTwo * 10) - threeT)/100;
+let pare = threeOne + threeTwo + threeT;
+let mult = threeOne * threeTwo * threeT;
+if (pare % 2 === 0){
+    console.log('paired');
+}
+else {
+    console.log('notpaired')
+}
+if(pare % 5 === 0){
+    console.log('multiple of five')
+}
+else{
+    console.log('not multiple of five')
+}
+if(mult > 100){
+    console.log('more then 100')
+}
+else{
+    console.log('less or even 100')
+}
+/////////////
+if(threeOne === threeTwo && threeTwo === threeT){
+    console.log('three of numbers are even')
+}
+else{
+    console.log('three of numbers are not even')
+}
+if (threeOne === threeTwo || threeOne === threeT || threeTwo === threeT){
+    console.log('some of three numbers are even')
+}
+else {
+    console.log('none of the three numbers are equal to each other')
+}
+////////////////
