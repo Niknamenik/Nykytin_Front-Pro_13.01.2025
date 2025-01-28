@@ -96,3 +96,27 @@ else {
     console.log('none of the three numbers are equal to each other')
 }
 ////////////////
+let mirrorOne = 123321
+let mirrorTwo = 147741
+let mirroredOne = mirrorOne
+    .toString()
+    .split('')
+    .reverse()
+    .join();
+let mirroredTwo = mirrorTwo
+    .toString()
+    .split('')
+    .reverse()
+    .join();
+if (mirrorOne.toString().split('').join() === mirroredOne){
+    console.log('first number is mirrored')
+}
+else{
+    console.log('first number is not mirrored')
+};
+if (mirrorTwo.toString().split('').join() === mirroredTwo){
+    console.log('second number is mirrored')
+}
+else{
+    console.log('second number is not mirrored')
+};
