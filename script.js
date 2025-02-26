@@ -1,10 +1,15 @@
-// Реалізуйте функцію removeElement(array, item), щоб видалити елемент item з масиву array.
+// Реалізуйте функцію generateKey(length, characters), що повертає рядок випадкових символів із набору characters довжиною length.
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
-function removeElement(array, item) {
-   const findItem =  array.indexOf(item);
-    array.splice(findItem, 1);
-    return array;
+function generateKey (length, characters) {
+    let key = '';
+    let max = characters.length;
+    for(let i = 0; i < length; i ++){
+        const randomInt = Math.floor(Math.random() * max);
+        let keyElement = characters.slice(randomInt, randomInt + 1);
+        key += keyElement;
+    };
+    return key;
 };
-console.log(removeElement(array, 3));
+console.log(generateKey(40, characters));
