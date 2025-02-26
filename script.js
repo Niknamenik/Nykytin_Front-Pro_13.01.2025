@@ -2,6 +2,8 @@
 
 const characters = 'abcdefghijklmnopqrstuvwxyz0123456789';
 
+let key = generateKey(5, characters);
+
 function generateKey (length, characters) {
     let key = '';
     let max = characters.length;
@@ -12,4 +14,4 @@ function generateKey (length, characters) {
     };
     return key;
 };
-console.log(generateKey(40, characters));
+console.log(key);
