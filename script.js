@@ -1,16 +1,35 @@
-// Реалізувати рекурсивну функцію, яка зводить число в ступінь.
-// Число, яке потрібно звести в ступінь, передається як перший аргумент у функцію
-// Ступінь передається як другий аргумент у функцію
+// Вам потрібно написати функцію, яка як параметр приймає функцію і додає їй можливість кешувати дзвінки.
+// Ідея полягає в тому, що при виклику функції з однаковими аргументами немає сенсу викликати функцію щоразу, достатньо зберігати дані про результати виклику.
+// Зберігати потрібно останні 10 дзвінків.
 
-function pow(num, degree){
-    if(degree === 0){
-        return 1;
-    }
-    else if(degree < 0){
-        return 1 / pow(num, -degree);
-    }
-    else {
-        return num * pow(num, degree - 1)
+function makeCall(number) {
+    console.log(`Виклик функції для: ${number}`);
+    return number;
+}
+
+function callNumbers(fn) {
+    let cache = new Map();
+
+    return function (number) {
+        debugger
+        if (cache.has(number)) {
+            return cache.get(number)
+        }
+
+        const result = fn(number)
+        cache.set(number, result)
+
+        if (cache.size > 10) {
+            const firstKey = cache.keys().next().value
+            cache.delete(firstKey)
+        }
+
+        console.log(`Останні 10: ${Array.from(cache.keys())}`)
+        return result
     };
-};
-console.log(pow(2,3));
+}
+
+const cachedNumbers = callNumbers(makeCall);
+console.log(cachedNumbers(945694609));
+console.log(cachedNumbers(945694609));
+console.log(cachedNumbers(123456789));
