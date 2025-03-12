@@ -11,7 +11,6 @@ function callNumbers(fn) {
     let cache = new Map();
 
     return function (number) {
-        debugger
         if (cache.has(number)) {
             return cache.get(number)
         }
