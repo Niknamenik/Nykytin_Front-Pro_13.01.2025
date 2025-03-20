@@ -1,13 +1,14 @@
-function sumNumbers(a, b) {
-    return a + b;
-  }
-  function powerSumFunction (fn, action = ''){
-      return function (...arguments){    
-        console.log(`Я вмію ${action} числа`);
-        const result = fn(...arguments); 
-        console.log(`Результат виклику функції:${result}`)
-        return result
-    }
-  }
-  const poweredSumFunc = powerSumFunction(sumNumbers, 'додавати');
-  poweredSumFunc(5, 5)
+// Є масив об'єктів з товарами та їх цінами. Вивести в консоль список із даними по всіх товарах (кожен товар на окремому рядку в консолі). 
+// Від користувача отримати номер товару (реалізувати перевірку на правильність введення номера) та кількість (також реалізувати валідацію), 
+// вивести на сторінку підсумкову вартість покупки. Якщо вартість перевищує 10.000грн, розрахувати знижку в 20% і повідомити про це користувача.
+// * ускладнити практичне завдання запровадженням категорій товарів. Відповідно, користувач може вибрати категорію товару, номер товару та кількість. 
+// Потім результат його вибору з'явиться на сторінці
+ let arr = [{asd: 234}, {sdaa: 47456}, {sdfgsdgf: 2342}, {sadsfg:34345}];   // +38 066 778 3454
+
+ for (let i = 0; i < arr.length; i++){
+  console.log(arr[i]);
+ };
+ let phoneNubmber = prompt('Enter your phone number + 380:');
+ if(phoneNubmber.length != 9){
+  prompt('Please check and enter your phone number + 380:')
+ }
