@@ -3,12 +3,10 @@
 // вивести на сторінку підсумкову вартість покупки. Якщо вартість перевищує 10.000грн, розрахувати знижку в 20% і повідомити про це користувача.
 // * ускладнити практичне завдання запровадженням категорій товарів. Відповідно, користувач може вибрати категорію товару, номер товару та кількість. 
 // Потім результат його вибору з'явиться на сторінці
- let arr = [{asd: 234}, {sdaa: 47456}, {sdfgsdgf: 2342}, {sadsfg:34345}];   // +38 066 778 3454
+ let products = [{asd: 234}, {sdaa: 47456}, {sdfgsdgf: 2342}, {sadsfg:34345}];   // +38 066 778 3454
 
- for (let i = 0; i < arr.length; i++){
-  console.log(arr[i]);
- };
- let phoneNubmber = prompt('Enter your phone number + 380:');
- if(phoneNubmber.length != 9){
-  prompt('Please check and enter your phone number + 380:')
+ for (let i = 0; i < products.length; i++){
+  console.log(products[i]);
  }
+ let prod = prompt('enter a product number') - 1
+ console.log(`your choese is ${products[prod]}`) 
