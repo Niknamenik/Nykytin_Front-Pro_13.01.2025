@@ -1,0 +1,9 @@
+.conteiner{
+    display: flex;
+    gap: 30px;
+}
+.smailik{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
