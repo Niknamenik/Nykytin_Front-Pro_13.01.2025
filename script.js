@@ -39,10 +39,36 @@ function getALink () {
 // Вивести таблицю 10 × 10, заповнену числами від 1 до 100 (таблиця створюється динамічно)
 
 const table = document.querySelector('table');
+const newTr = document.createElement('tr')
+const newTd = document.createElement('td')
+let i = 0
+let number = 1
+
+const createdTable = createETable()
 
 function createETable () {
-    if(!table.innerHTML){
-        table.appendChild(document.createElement('tr'))
+    if (table.getElementsByTagName('tr').length < 10){
+        const newTr = document.createElement('tr')
+        table.appendChild(newTr)
+        return createETable()
     }
-
+    if(table.getElementsByTagName('tr')[i].getElementsByTagName('td').length < 10){
+        const newTd = document.createElement('td')
+        table.getElementsByTagName('tr')[i].appendChild(newTd).textContent = number
+        number ++
+        return createETable()
+    }
+    if (i < 9){
+        i++
+        return createETable()
+    }
 }
+
+// У папці images є зображення 1.jpg, 2.jpg, 3.jpg, 4.jpg, 5.jpg, 6.jpg, 7.jpg, 8.jpg, 9.jpg. 
+// Вивести зображення з цієї папки отримане випадковим чином (Math.random)
+
+const img = document.createElement('img')
+document.body.appendChild(img)
+let random = Math.floor((Math.random() * 10) + 1) 
+
+img.setAttribute('src', `./imgs/${random}.jpg`)
