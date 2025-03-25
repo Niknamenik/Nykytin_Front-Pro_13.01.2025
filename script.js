@@ -1,15 +1,31 @@
-// Створити програму для відображення результатів голосування. Як варіанти відповіді - смайлики. 
-// За замовчуванням 5 шт.
-// Виведення даних - смайлики в один рядок, під ними - кількість тих, хто проголосував за кожен смайл
-// При натисканні на смайл - під ним змінюється значення лічильника
-// Реалізувати таким чином, щоб додавання нових варіантів відповіді не призводило до додавання нових функцій
+// Пишемо свій слайдер зображень відображаємо зображення та кнопки Next, Prev з боків від зображення
+// При натисканні на Next - показуємо наступне зображення
+// При натисканні на Prev - попереднє
+// При досягненні останнього зображення – ховати кнопку Next. Аналогічно з першим зображенням та кнопкою Prev.
 
-const arr = document.getElementsByClassName('smailik')
-let smiles = Array(...arr)
+const slider = document.getElementsByClassName('slider')[0]
+const btnNext = document.querySelectorAll('button')[1]
+const btnPrev = document.querySelectorAll('button')[0]
 
-smiles.forEach(element => {
-    let counter = 0
-    element.addEventListener('click', function (){
-        this.getElementsByTagName('p')[0].textContent = ++counter
-    })
-});
+let offset = 0
+
+if (offset === 0){
+    btnPrev.disabled = true
+}
+btnNext.addEventListener('click', function (){
+    offset -= 400
+    slider.style.left = offset + 'px'
+    btnPrev.disabled = false
+    if(offset === -3600){
+        this.disabled = true
+    }
+    
+})
+btnPrev.addEventListener('click', function (){
+    offset += 400
+    slider.style.left = offset + 'px'
+    btnNext.disabled = false
+    if(offset === 0){
+        this.disabled = true
+    }
+})

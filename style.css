@@ -1,9 +1,21 @@
-.conteiner{
-    display: flex;
-    gap: 30px;
+.container{
+    margin:0 auto;
+    width: 400px;
+    overflow: hidden;
 }
-.smailik{
+.slider{
     display: flex;
-    flex-direction: column;
-    cursor: pointer;
+    height: 300px;
+    width: 1000%;
+    position: relative;
+    transition:0.4s ease;
+}
+.slider img{
+    min-width: 400px;
+}
+.btns{
+    display: flex;
+    width: 35%;
+    justify-content: space-between;
+    margin:50px auto;
 }
