@@ -17,14 +17,20 @@ function showProducts (){
     ul.style = 'display:block'
     const liArr = Array(... ul.getElementsByTagName('li'))
     liArr.forEach((element) => element.addEventListener('click', showInfo))
+    const info = document.getElementsByClassName('info')[0]
+    info.innerHTML = ''
 
 }
 function showInfo (){
     const info = document.getElementsByClassName('info')[0]
     const p = document.createElement('p')
     const btn = document.createElement('button')
+    const li = this
     info.style = 'display: block;'
-    if(){}
+    info.innerHTML = ''
     info.appendChild(p).textContent = `info about ${this.innerHTML}`
     info.appendChild(btn).textContent = 'Buy'
+    btn.addEventListener('click', function () {
+        alert(`Done! Ty for your order (${li.textContent})`)
+    })
 }
