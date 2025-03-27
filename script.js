@@ -32,5 +32,6 @@ function showInfo (){
     info.appendChild(btn).textContent = 'Buy'
     btn.addEventListener('click', function () {
         alert(`Done! Ty for your order (${li.textContent})`)
+        window.location.reload()
     })
 }
