@@ -1,30 +1,30 @@
-// Написати функцію generateList(array), яка приймає масив із чисел та масивів чисел (наприклад [1,2,3]) і генерує список з елементів
-// Якщо ж у масиві зустрічається масив (наприклад, [1,2, [1.1,1.2,1.3], 3]) то робити вкладений список. 
-// Для перевірки масиву використовуйте Array.isArray()
+// Реалізувати подобу інтернет-магазину
+// Дано 3 блоки
+// У лівій частині сторінки – перелік категорій.
+// При натисканні на категорію виводиться у середній блок список товарів цієї категорії.
+// Клік на товар – інформацію про товар у правому блоці.
+// В інформації товару - кнопка "купити"
+// При натисканні на “купити” з'являється повідомлення, що товар куплено та повернення у вихідний стан програми (коли відображається лише список категорій)
 
-const arr = [1,2, [1.1,1.2,1.35,6,7,8,98,9], 3,4,5,[6,7,87,9],0]
-function generateList (array){
-    if (!document.body.querySelector('ul')){
-        const ul = document.createElement('ul')
-        document.body.appendChild(ul)
-    }
-    
-    for (let i = 0; array.length > i; i++) {
-        const li = document.createElement('li')
-        const ul = document.querySelector('ul')
-        ul.appendChild(li)
-        if (!Array.isArray(array[i])){
-            li.textContent = array[i]
-        }
-        if (Array.isArray(array[i])){
-            const interUl = document.createElement('ul')
-            const liArr = document.querySelectorAll('li')
-            const lastLi = liArr[liArr.length - 1]
-            lastLi.appendChild(interUl)
-            for (let idx = 0; array[i].length > idx; idx ++){
-                const li = document.createElement('li')
-                interUl.appendChild(li).textContent = array[i][idx]
-            }
-        }
-    }
+const categorysArr = Array(... document.getElementsByClassName('category')[0].querySelectorAll('li'));
+
+categorysArr.forEach((element) => element.addEventListener('click', showProducts))
+
+function showProducts (){
+    const ul = document.getElementsByClassName(`${this.innerHTML}_products`)[0]
+    const ulArr = Array(... document.getElementsByClassName('products')[0].querySelectorAll('ul'))
+    ulArr.forEach((element) => element.style = 'display:none')
+    ul.style = 'display:block'
+    const liArr = Array(... ul.getElementsByTagName('li'))
+    liArr.forEach((element) => element.addEventListener('click', showInfo))
+
+}
+function showInfo (){
+    const info = document.getElementsByClassName('info')[0]
+    const p = document.createElement('p')
+    const btn = document.createElement('button')
+    info.style = 'display: block;'
+    if(){}
+    info.appendChild(p).textContent = `info about ${this.innerHTML}`
+    info.appendChild(btn).textContent = 'Buy'
 }
