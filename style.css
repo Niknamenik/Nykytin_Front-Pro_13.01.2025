@@ -1,11 +1,7 @@
-.conteiner{
+#formData{
     display: flex;
-    gap:50px;
-}
-li{
-    cursor: pointer;
-}
-li:hover{
-    color: rgb(8, 0, 255);
-    transition: 0.4s ease;
+    flex-direction: column;
+    gap: 20px;
+    width: 25%;
+    margin: 30px auto;
 }
