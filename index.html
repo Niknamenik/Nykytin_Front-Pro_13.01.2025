@@ -7,22 +7,66 @@
     <title>Document</title>
 </head>
 <body>
-    <form id="formData" action="/-server" method="GET">
-        <label for="name">Full Name:
-            <input name="full name" id="name" type="text">
-        </label>
-
-        <label for="DoB">Date of birth:
-            <input name="date of birth" id="DoB" type="text">
-        </label>
-
-        <div class="sex">
-            <label for="Sex_M">M<input name="sex" id="Sex_M" type="radio" value="M"></label>
-            <label for="Sex_W">W<input name="sex" id="Sex_W" type="radio" value="W"></label>
+    <section class="conteiner">
+        <div class="category">
+            <ul>
+                <li>stuf</li>
+                <li>shoes</li>
+                <li>bags</li>
+                <li>accesories</li>
+                <li>parfums</li>
+            </ul>
+        </div>
+        <div class="products">
+            <ul style= 'display: none' class="stuf_products">
+                <li id="stuf_product_1">stuf_product_1</li>
+                <li id="stuf_product_2">stuf_product_2</li>
+                <li id="stuf_product_3">stuf_product_3</li>
+                <li id="stuf_product_4">stuf_product_4</li>
+                <li id="stuf_product_5">stuf_product_5</li>
+            </ul>
+            <ul style= 'display: none' class="shoes_products">
+                <li id="shoes_product_1">shoes_product_1</li>
+                <li id="shoes_product_2">shoes_product_2</li>
+                <li id="shoes_product_3">shoes_product_3</li>
+                <li id="shoes_product_4">shoes_product_4</li>
+                <li id="shoes_product_5">shoes_product_5</li>
+            </ul>
+            <ul style= 'display: none' class="bags_products">
+                <li id="bags_product_1">bags_product_1</li>
+                <li id="bags_product_2">bags_product_2</li>
+                <li id="bags_product_3">bags_product_3</li>
+                <li id="bags_product_4">bags_product_4</li>
+                <li id="bags_product_5">bags_product_5</li>
+                
+            </ul>
+            <ul style= 'display: none' class="accesories_products">
+                <li id="accesories_product_1">accesories_product_1</li>
+                <li id="accesories_product_2">accesories_product_2</li>
+                <li id="accesories_product_3">accesories_product_3</li>
+                <li id="accesories_product_4">accesories_product_4</li>
+                <li id="accesories_product_5">accesories_product_5</li>
+            </ul>
+            <ul style= 'display: none' class="parfums_products">
+                <li id="parfums_product_1">parfums_product_1</li>
+                <li id="parfums_product_2">parfums_product_2</li>
+                <li id="parfums_product_3">parfums_product_3</li>
+                <li id="parfums_product_4">parfums_product_4</li>
+                <li id="parfums_product_5">parfums_product_5</li>
+            </ul>
+        </div>
+        <div class="info">
 
         </div>
-        <label for="city">City:
-            <select name="city" id="city">
+    </section>
+    <form id="formData" action="/-server" method="GET" style="display: none ;">
+        <label for="name">ПІБ:
+            <input name="full name" id="name" type="text" required>
+        </label>
+
+        <label for="city">Місто:
+            <select name="city" id="city" required>
+                <option value="">-Оберiть мiсто-</option>
                 <option value="dnipro">Dnipro</option>
                 <option value="charkiv">Charkiv</option>
                 <option value="kyiv">Kyiv</option>
@@ -30,16 +74,27 @@
             </select>
         </label>
 
-        <label for="address">Address:
-            <input name="address" id="address" type="text">
+        <label for="PON">Склад Нової:
+            <select name="post office number" id="PON" required>
+                <option value="">-Оберiть вiддiлення-</option>
+                <option value="first">Перше</option>
+                <option value="second">Друге</option>
+                <option value="third">Третє</option>
+                <option value="forth">Четверте</option>
+            </select>
         </label>
 
-        <div class="languages">
-            <label for="eng_lang">Eng<input id="eng_lang" name="language_eng" type="checkbox" value="eng"></label>
-            <label for="ukr_lang">Ukr<input id="ukr_lang" name="language_ukr" type="checkbox" value="ukr"></label>
-            <label for="pl_lang">Pl<input id="pl_lang" name="language_pl" type="checkbox" value="pl"></label>
-            <label for="sp_lang">Sp<input id="sp_lang" name="language_sp" type="checkbox" value="sp"></label>
+        <div class="payment">
+            <label for="payment_bef">Оплата банківською картою<input name="payment" id="payment_bef" type="radio" value="card" required></label>
+            <label for="payment_aft">При отриманнi<input name="payment" id="payment_aft" type="radio" value="cash" required></label>
+
         </div>
+
+        <label for="quantity">Кількість:
+            <input name="quantity" id="quantity" type="number" required>
+        </label>
+        
+        <label for="comment">Коментар<input id="comment" name="comment" type="text" placeholder="коментар до замовлення" ></label>
         <input id="submit" type="submit" value="Save">
     </form>
     <script src="./script.js"></script>
