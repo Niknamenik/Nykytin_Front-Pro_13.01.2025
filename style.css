@@ -1,6 +1,10 @@
 .conteiner{
     display: flex;
     gap:50px;
+    justify-content: space-between;
+}
+.basket{
+    margin: 30px;
 }
 li{
     cursor: pointer;
@@ -21,4 +25,19 @@ td{
 }
 table{
     border: 1px solid black; 
+    margin: 30px;
+}
+.basket li {
+    border: 1px solid black;
+    margin: 20px;
+}
+.hidden{
+    display: none;
+}
+.basket_conteiner{
+    border: 1px solid red;
+}
+svg{
+    max-width: 10px;
+    max-height: 10px;
 }
