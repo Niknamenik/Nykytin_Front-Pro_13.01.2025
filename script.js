@@ -38,6 +38,10 @@ function getLi (li){
 function turnOffSuperfluous (){
     const products = document.querySelector ('.products').children
     const selectedProduct = [...products].find((element) => element.getAttribute('style') === "display: block;")
+    const form = document.querySelector('form')
+    form.style = 'display: none'
+    const tables = document.getElementsByTagName('table');
+    [...tables].forEach((element) => element.style = "display: none")
     if(selectedProduct){
         selectedProduct.style = 'display: none'
     }
@@ -111,16 +115,17 @@ basketBtn.addEventListener('click', showOrders)
 function showOrders(){
     document.querySelector('.category').style = 'display: none'
     turnOffSuperfluous ()
-    const tables = document.getElementsByTagName('table');
-    [...tables].forEach((element) => element.style = "display: none")
-    document.querySelector('.basket_conteiner').style = "display: block"
-    if(document.querySelector('.basket').children[0]){
-        return
-    }
+    document.querySelector('.basket_conteiner').style = 'display: block'
+    const basketList = document.querySelector('.basket')
+    basketList.style = "display: block"
+    const orders = JSON.parse(localStorage.getItem('orders'))
     const ordersFromLocalStorage = JSON.parse(localStorage.getItem('orders'))
+
+    if(basketList.innerText === 'NO ORDERS'){
+        basketList.innerText = ''
+    }
     
     for(let i = 0; i < ordersFromLocalStorage.length; i++){
-        const basketList = document.querySelector('.basket')
         const li = document.createElement("li")
         const orderInfo = document.createElement('ul')
         const delBtn = document.createElement('button')
@@ -149,6 +154,10 @@ function showOrders(){
         }
         
     }
+    if(!orders[0]){
+        basketList.textContent = 'NO ORDERS'
+        return
+    }
 
 }
  function showOrderInfo(){
@@ -171,6 +180,9 @@ function showOrders(){
         localStorage.setItem('orders', JSON.stringify(orders))
         console.log(localStorage)
         basket.removeChild(li)
+        if(!basket.children[0]){
+            basket.innerText = 'NO ORDERS'
+        }
     }
 
  }

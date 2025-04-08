@@ -36,8 +36,19 @@ table{
 }
 .basket_conteiner{
     border: 1px solid red;
+    position: relative;
+    min-width: 350px;
+    min-height: 40px;
 }
 svg{
     max-width: 10px;
     max-height: 10px;
+}
+.close_basket{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+.basket{
+    padding:0;
 }
