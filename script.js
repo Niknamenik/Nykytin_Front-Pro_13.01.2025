@@ -91,6 +91,7 @@ function saveOrder (formData){
         const currnetDate = new Date()
         order['date'] = `${currnetDate.getDate()}.${currnetDate.getMonth()}.${currnetDate.getFullYear()}`
         order['price'] = `${Math.floor(Math.random() * 1000) + 1}`
+        order['order_No'] = `${Date.now()}`
     }
     const ordersFromLocalStorage = localStorage.getItem('orders')
     if(!ordersFromLocalStorage){
@@ -108,14 +109,14 @@ const basketBtn = document.querySelector('.basket_btn')
 basketBtn.addEventListener('click', showOrders)
 
 function showOrders(){
-    if(document.querySelector('.basket').children[0]){
-        return
-    }
     document.querySelector('.category').style = 'display: none'
     turnOffSuperfluous ()
     const tables = document.getElementsByTagName('table');
     [...tables].forEach((element) => element.style = "display: none")
-    document.querySelector('.basket_conteiner').style = "display.none"
+    document.querySelector('.basket_conteiner').style = "display: block"
+    if(document.querySelector('.basket').children[0]){
+        return
+    }
     const ordersFromLocalStorage = JSON.parse(localStorage.getItem('orders'))
     
     for(let i = 0; i < ordersFromLocalStorage.length; i++){
@@ -156,7 +157,19 @@ function showOrders(){
 
 
  function deleteOrder(){
-    const li = this.parentElement
-    const basket = li.parentElement
-    basket.removeChild(li)
+    if(confirm('Ви дiсно хочете видалити замовлення?')){
+        const li = this.parentElement
+        const basket = li.parentElement
+        basket.removeChild(li)
+        
+    }
+
  }
+
+ const basketCloser = document.querySelector('.close_basket')
+ basketCloser.addEventListener('click', closeBasket)
+
+ function closeBasket (){
+    document.querySelector('.category').style = 'display: block'
+    document.querySelector('.basket_conteiner').style = 'display: none'
+ }  
