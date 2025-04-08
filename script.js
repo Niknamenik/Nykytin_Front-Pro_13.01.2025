@@ -1,4 +1,3 @@
-
 const categorysArr = document.getElementsByClassName('category')[0].querySelectorAll('li');
 
 categorysArr.forEach((element) => element.addEventListener('click', showProducts))
