@@ -143,6 +143,7 @@ function showOrders(){
         for(let key in ordersFromLocalStorage[i]){
             li.append(orderInfo)
             const hiddenLi = document.createElement('li')
+            hiddenLi.setAttribute('id',`${key}`)
             orderInfo.appendChild(hiddenLi).innerHTML = `<span>${key}:</span> <span>${ordersFromLocalStorage[i][key]}</span>`
 
         }
@@ -159,9 +160,17 @@ function showOrders(){
  function deleteOrder(){
     if(confirm('Ви дiсно хочете видалити замовлення?')){
         const li = this.parentElement
+        const hiddenUl = li.querySelector('ul')
+        const liOrderNo = hiddenUl.querySelector('#order_No')
+        const orderNo = liOrderNo.children[1].innerText
+        const orders = JSON.parse(localStorage.getItem('orders'))
         const basket = li.parentElement
+        const order = orders.find((element) => element.order_No === orderNo)
+        const indeksOfOrder = orders.indexOf(order)
+        orders.splice(indeksOfOrder, 1)
+        localStorage.setItem('orders', JSON.stringify(orders))
+        console.log(localStorage)
         basket.removeChild(li)
-        
     }
 
  }
