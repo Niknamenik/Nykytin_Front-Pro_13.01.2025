@@ -178,7 +178,6 @@ function showOrders(){
         const indeksOfOrder = orders.indexOf(order)
         orders.splice(indeksOfOrder, 1)
         localStorage.setItem('orders', JSON.stringify(orders))
-        console.log(localStorage)
         basket.removeChild(li)
         if(!basket.children[0]){
             basket.innerText = 'NO ORDERS'
