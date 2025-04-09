@@ -94,7 +94,6 @@ formEditUser.addEventListener('submit', (event) => {
 
     const usersFromLS = JSON.parse(localStorage.getItem('users'))
     const indexOfUserToFix = usersFromLS.indexOf(usersFromLS.find((element) => element.id === id))
-    console.log(indexOfUserToFix)
     usersFromLS[indexOfUserToFix].name = editedName
     localStorage.setItem('users', JSON.stringify(usersFromLS))
 
