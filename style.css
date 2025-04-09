@@ -1,54 +1,14 @@
-.conteiner{
-    display: flex;
-    gap:50px;
-    justify-content: space-between;
+table {
+    border: 1px solid;
+    margin: 10px;
+    min-width: 320px;
+  }
+th{
+    border: 1px solid;
 }
-.basket{
-    margin: 30px;
+td:first-child{
+    border: 1px, solid;
 }
-li{
-    cursor: pointer;
-}
-li:hover{
-    color: rgb(8, 0, 255);
-    transition: 0.4s ease;
-}
-#formData{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: fit-content;
-    margin: 30px auto;
-}
-td{
-    border: 1px solid black;
-}
-table{
-    border: 1px solid black; 
-    margin: 30px;
-}
-.basket li {
-    border: 1px solid black;
-    margin: 20px;
-}
-.hidden{
-    display: none;
-}
-.basket_conteiner{
-    border: 1px solid red;
-    position: relative;
-    min-width: 350px;
-    min-height: 40px;
-}
-svg{
-    max-width: 10px;
-    max-height: 10px;
-}
-.close_basket{
-    position: absolute;
-    right: 10px;
-    top: 10px;
-}
-.basket{
-    padding:0;
+table button{
+    width: 100%;
 }

@@ -1,109 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <section>
-        <div class="conteiner">
-            <div style="display: none;" class="basket_conteiner">
-                <button class="close_basket">X</button>
-                <ul class="basket"></ul>
-            </div>
-            <div class="category">
-                <ul>
-                    <li>stuf</li>
-                    <li>shoes</li>
-                    <li>bags</li>
-                    <li>accesories</li>
-                    <li>parfums</li>
-                </ul>
-            </div>
-            <div class="products">
-                <ul style= 'display: none' class="stuf_products">
-                    <li id="stuf_product_1">stuf_product_1</li>
-                    <li id="stuf_product_2">stuf_product_2</li>
-                    <li id="stuf_product_3">stuf_product_3</li>
-                    <li id="stuf_product_4">stuf_product_4</li>
-                    <li id="stuf_product_5">stuf_product_5</li>
-                </ul>
-                <ul style= 'display: none' class="shoes_products">
-                    <li id="shoes_product_1">shoes_product_1</li>
-                    <li id="shoes_product_2">shoes_product_2</li>
-                    <li id="shoes_product_3">shoes_product_3</li>
-                    <li id="shoes_product_4">shoes_product_4</li>
-                    <li id="shoes_product_5">shoes_product_5</li>
-                </ul>
-                <ul style= 'display: none' class="bags_products">
-                    <li id="bags_product_1">bags_product_1</li>
-                    <li id="bags_product_2">bags_product_2</li>
-                    <li id="bags_product_3">bags_product_3</li>
-                    <li id="bags_product_4">bags_product_4</li>
-                    <li id="bags_product_5">bags_product_5</li>
-                    
-                </ul>
-                <ul style= 'display: none' class="accesories_products">
-                    <li id="accesories_product_1">accesories_product_1</li>
-                    <li id="accesories_product_2">accesories_product_2</li>
-                    <li id="accesories_product_3">accesories_product_3</li>
-                    <li id="accesories_product_4">accesories_product_4</li>
-                    <li id="accesories_product_5">accesories_product_5</li>
-                </ul>
-                <ul style= 'display: none' class="parfums_products">
-                    <li id="parfums_product_1">parfums_product_1</li>
-                    <li id="parfums_product_2">parfums_product_2</li>
-                    <li id="parfums_product_3">parfums_product_3</li>
-                    <li id="parfums_product_4">parfums_product_4</li>
-                    <li id="parfums_product_5">parfums_product_5</li>
-                </ul>
-            </div>
-            <div class="info">
-    
-            </div>
-            <div><button class="basket_btn">мої замовлення</button></div>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <section class="app_conteiner">
+        <div class = app>
+            <form action="/no_action" id="add_user_form">
+                <label for="add_user">
+                    Add User
+                    <input type="text" id="add_user">
+                </label>
+                <button type="submit" id="add_user_btn">Add User</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User name</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <form action="/no_action" id="edit_user_form">
+                <label for="edit_user">
+                    Edit User
+                    <input disabled type="text" id="edit_user">
+                </label>
+                <button type="submit" disabled id="edit_user_btn">Edit User</button>
+            </form>
         </div>
     </section>
-    <form id="formData" action="/-server" method="GET" style="display: none ;">
-        <label for="name">ПІБ:
-            <input name="full name" id="name" type="text" required>
-        </label>
 
-        <label for="city">Місто:
-            <select name="city" id="city" required>
-                <option value="">-Оберiть мiсто-</option>
-                <option value="dnipro">Dnipro</option>
-                <option value="charkiv">Charkiv</option>
-                <option value="kyiv">Kyiv</option>
-                <option value="lviv">Lviv</option>
-            </select>
-        </label>
-
-        <label for="PON">Склад Нової:
-            <select name="post office number" id="PON" required>
-                <option value="">-Оберiть вiддiлення-</option>
-                <option value="first">Перше</option>
-                <option value="second">Друге</option>
-                <option value="third">Третє</option>
-                <option value="forth">Четверте</option>
-            </select>
-        </label>
-
-        <div class="payment">
-            <label for="payment_bef">Оплата банківською картою<input name="payment" id="payment_bef" type="radio" value="card" required></label>
-            <label for="payment_aft">При отриманнi<input name="payment" id="payment_aft" type="radio" value="cash" required></label>
-
-        </div>
-
-        <label for="quantity">Кількість:
-            <input name="quantity" id="quantity" type="number" required>
-        </label>
-        
-        <label for="comment">Коментар<input id="comment" name="comment" type="text" placeholder="коментар до замовлення" ></label>
-        <input id="submit" type="submit" value="Save">
-    </form>
-    <script src="./script.js"></script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
