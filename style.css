@@ -1,0 +1,37 @@
+#house_creator {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: fit-content;
+  align-items: center;
+}
+
+#house_creator button {
+  width: 150px;
+}
+button {
+  transition: 0.4s ease;
+}
+
+button:hover {
+  transform: scale(1.1);
+}
+
+label {
+  padding-left: 15px;
+}
+
+#flat-form {
+  padding: 15px;
+  width: fit-content;
+}
+
+#flat-form button {
+  margin-top: 15px;
+}
+#save-btn {
+  margin-right: 15px;
+}
+.hidden {
+  display: none;
+}

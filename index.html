@@ -6,9 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-
+    <div class="cereate_house">
+      <h2>Додати новий будинок</h2>
+      <form action="/no-action" id="house_creator">
+        <label for="flats">
+          Кількість квартир: <input type="number" id="flats" required />
+        </label>
+        <label for="residents">
+          Кількість мешканців<br />
+          у кожній квартирі :
+          <input type="number" id="residents" required />
+        </label>
+        <button type="submit" id="submit_btn">Створити квартири</button>
+      </form>
+    </div>
+    <form action="/no-action" id="flat-form">
+      <button type="button" id="show-btn" class="hidden">
+        Показати будинок
+      </button>
+    </form>
     <script src="script.js"></script>
   </body>
 </html>
