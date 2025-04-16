@@ -24,6 +24,7 @@ label {
 #flat-form {
   padding: 15px;
   width: fit-content;
+  margin-top: 10px;
 }
 
 #flat-form button {
