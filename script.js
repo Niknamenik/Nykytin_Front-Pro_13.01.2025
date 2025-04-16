@@ -8,12 +8,14 @@ houseForm.addEventListener("submit", (event) => {
 
   const numOfResidents = residentsInput.value;
   const numOfFlats = flatsInput.value;
-
-  document.body.appendChild(flatsForm);
   const button = document.createElement("button");
+
   button.setAttribute("type", "submit");
   button.setAttribute("id", "save-btn");
   button.innerText = "Зберегти мешканців";
+  const flats = document.querySelectorAll(".flat");
+  flats.forEach((flat) => flat.remove());
+  document.querySelector("#show-btn").setAttribute("class", "hidden");
 
   for (let i = 1; i <= numOfFlats; i++) {
     const div = document.createElement(`div`);
@@ -26,8 +28,11 @@ houseForm.addEventListener("submit", (event) => {
       div.append(label);
       label.innerHTML = `<input type='text' required data-resident='${n}' data-flat='${i}' placeholder='Мешканець ${n}'>`;
     }
-    flatsForm.prepend(button);
+    if (!document.querySelector("#save-btn")) {
+      flatsForm.prepend(button);
+    }
     flatsForm.style = "border: 1px solid";
+    houseForm.reset();
   }
 });
 
@@ -56,6 +61,7 @@ function showTheHouse() {
   const houseArr = JSON.parse(localStorage.getItem("house"));
 
   document.body.append(div);
+  div.setAttribute("class", "house");
   houseArr.forEach((flat, index) => {
     const paragraf = document.createElement("p");
     div.appendChild(paragraf).innerText = `Kвартирa ${index + 1}: ${flat}`;

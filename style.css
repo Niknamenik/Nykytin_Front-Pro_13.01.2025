@@ -36,3 +36,9 @@ label {
 .hidden {
   display: none;
 }
+.house {
+  padding: 10px;
+  border: 1px solid;
+  width: fit-content;
+  margin-top: 15px;
+}
