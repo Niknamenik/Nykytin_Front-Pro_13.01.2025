@@ -1,69 +1,114 @@
-const houseForm = document.querySelector("#house_creator");
-const residentsInput = document.querySelector("#residents");
-const flatsInput = document.querySelector("#flats");
-const flatsForm = document.querySelector("#flat-form");
-
-houseForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const numOfResidents = residentsInput.value;
-  const numOfFlats = flatsInput.value;
-  const button = document.createElement("button");
-
-  button.setAttribute("type", "submit");
-  button.setAttribute("id", "save-btn");
-  button.innerText = "Зберегти мешканців";
-  const flats = document.querySelectorAll(".flat");
-  flats.forEach((flat) => flat.remove());
-  document.querySelector("#show-btn").setAttribute("class", "hidden");
-
-  for (let i = 1; i <= numOfFlats; i++) {
-    const div = document.createElement(`div`);
-    div.setAttribute("class", "flat");
-    div.setAttribute("id", `flat_No-${i}`);
-    flatsForm.appendChild(div).innerHTML = `<p>Kвартирa ${i}</p>`;
-
-    for (let n = 1; n <= numOfResidents; n++) {
-      const label = document.createElement("label");
-      div.append(label);
-      label.innerHTML = `<input type='text' required data-resident='${n}' data-flat='${i}' placeholder='Мешканець ${n}'>`;
-    }
-    if (!document.querySelector("#save-btn")) {
-      flatsForm.prepend(button);
-    }
-    flatsForm.style = "border: 1px solid";
-    houseForm.reset();
+class Resident {
+  constructor(name) {
+    this.name = name;
   }
-});
-
-flatsForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const houseArr = [];
-  const flats = document.getElementsByClassName("flat");
-  const showBtn = document.querySelector("#show-btn");
-  for (let i = 0; i < flats.length; i++) {
-    const flatInputs = document.querySelectorAll(`#flat_No-${i + 1} input`);
-    let flatArr = [];
-    houseArr.push(flatArr);
-    flatInputs.forEach((input) => {
-      flatArr.push(input.value);
-    });
-  }
-  localStorage.setItem("house", JSON.stringify(houseArr));
-  showBtn.removeAttribute("class");
-  showBtn.addEventListener("click", showTheHouse);
-  alert("Мешканців збережено!");
-});
-
-function showTheHouse() {
-  const div = document.createElement("div");
-  const houseArr = JSON.parse(localStorage.getItem("house"));
-
-  document.body.append(div);
-  div.setAttribute("class", "house");
-  houseArr.forEach((flat, index) => {
-    const paragraf = document.createElement("p");
-    div.appendChild(paragraf).innerText = `Kвартирa ${index + 1}: ${flat}`;
-  });
 }
+
+class Flat {
+  constructor(number) {
+    this.number = number;
+    this.residents = [];
+  }
+
+  addResident(resident) {
+    this.residents.push(resident);
+  }
+}
+
+class House {
+  constructor() {
+    this.flats = [];
+  }
+
+  addFlat(flat) {
+    this.flats.push(flat);
+  }
+
+  getInfo() {
+    return this.flats
+      .map((flat) => {
+        const names = flat.residents.map((r) => r.name).join(", ");
+        return `Квартира ${flat.number}: ${names}`;
+      })
+      .join("<br>");
+  }
+}
+
+class HouseBuilder {
+  constructor() {
+    this.house = new House();
+    this.flatsSection = document.getElementById("flats-section");
+    this.output = document.getElementById("output");
+  }
+
+  createFlatsForm() {
+    const numFlats = +document.getElementById("num-flats").value;
+    const numResidents = +document.getElementById("num-residents").value;
+
+    if (!numFlats || !numResidents) {
+      alert("Будь ласка, заповніть всі поля.");
+      return;
+    }
+
+    this.house = new House(); // reset
+    this.flatsSection.innerHTML = "";
+    this.flatsSection.classList.remove("hidden");
+
+    for (let i = 0; i < numFlats; i++) {
+      const flat = new Flat(i + 1);
+      this.house.addFlat(flat);
+
+      const flatDiv = document.createElement("div");
+      flatDiv.classList.add("block");
+      flatDiv.innerHTML = `<h3>Квартира ${i + 1}</h3>`;
+
+      for (let j = 0; j < numResidents; j++) {
+        const input = document.createElement("input");
+        input.type = "text";
+        input.placeholder = `Мешканець ${j + 1}`;
+        input.dataset.flatIndex = i;
+        flatDiv.appendChild(input);
+      }
+
+      this.flatsSection.appendChild(flatDiv);
+    }
+
+    const saveBtn = document.createElement("button");
+    saveBtn.textContent = "Зберегти мешканців";
+    saveBtn.onclick = () => this.saveResidents(numFlats, numResidents);
+    this.flatsSection.appendChild(saveBtn);
+  }
+
+  saveResidents(numFlats, numResidents) {
+    const inputs = this.flatsSection.querySelectorAll("input");
+    let allFilled = true;
+
+    inputs.forEach((input) => {
+      if (!input.value.trim()) allFilled = false;
+    });
+
+    if (!allFilled) {
+      alert("Заповніть всі імена мешканців.");
+      return;
+    }
+
+    this.house.flats.forEach((flat) => (flat.residents = []));
+
+    inputs.forEach((input) => {
+      const flatIndex = input.dataset.flatIndex;
+      const name = input.value.trim();
+      const resident = new Resident(name);
+      this.house.flats[flatIndex].addResident(resident);
+    });
+
+    document.getElementById("show-data-btn").classList.remove("hidden");
+    alert("Мешканців збережено!");
+  }
+
+  showHouseData() {
+    this.output.innerHTML =
+      `<h3>Інформація про будинок:</h3>` + this.house.getInfo();
+  }
+}
+
+const builder = new HouseBuilder();
