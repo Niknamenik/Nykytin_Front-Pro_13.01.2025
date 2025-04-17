@@ -1,72 +1,175 @@
-class Humburger {
-  static small_size = { price: 50, calories: 20 };
-  static big_size = { price: 100, calories: 40 };
-  static stuffing_cheese = { price: 10, calories: 20 };
-  static stuffing_salad = { price: 20, calories: 5 };
-  static stuffing_potato = { price: 5, calories: 10 };
-  static topping_mayo = { price: 20, calories: 5 };
-  static topping_sauce = { price: 15, calories: 0 };
-
-  constructor(size, stuffing = [], topping = []) {
-    this.size = size;
-    this.stuffing = [stuffing];
-    this.topping = [topping];
+class Student {
+  constructor(name, secondName, yearOfBirth, scores = []) {
+    this.name = name;
+    this.secondName = secondName;
+    this.yearOfBirth = yearOfBirth;
+    this.scores = scores;
+    this.attendance = [];
   }
 
-  calculatePrice() {
-    let price =
-      this.size.price +
-      this.stuffing.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.price,
-        0
-      ) +
-      this.topping.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.price,
-        0
-      );
-    return price;
+  getAge() {
+    const date = new Date();
+    return date.getFullYear() - this.yearOfBirth;
   }
 
-  calculateCalories() {
-    let calories =
-      this.size.calories +
-      this.stuffing.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.calories,
-        0
-      ) +
-      this.topping.reduce(
-        (accumulator, currentValue) => accumulator + currentValue.calories,
-        0
-      );
-    return calories;
+  getAverageScore() {
+    return (
+      this.scores.reduce((acc, score) => acc + score, 0) / this.scores.length
+    );
   }
 
-  addStuffing(stuffing) {
-    this.stuffing.push(stuffing);
+  present() {
+    if (this.attendance.length < 25) {
+      this.attendance.push(true);
+    } else {
+      alert("The student has already received 25 attendance marks");
+    }
+  }
+  absent() {
+    if (this.attendance.length <= 25) {
+      this.attendance.push(false);
+    } else {
+      alert("The student has already received 25 attendance marks");
+    }
+  }
+  getAverageAttendance() {
+    return this.attendance.filter((mark) => mark == true).length / 25;
   }
 
-  addTopping(topic) {
-    this.topping.push(topic);
+  summary() {
+    const avarageScore = student.getAverageScore();
+    const avarageAttendance =
+      this.attendance.filter((mark) => mark == true).length / 25;
+
+    if ((avarageScore >= 90) & (avarageAttendance >= 0.9)) {
+      console.log("Молодець!");
+      return;
+    }
+    if (avarageScore >= 90 || avarageAttendance >= 0.9) {
+      console.log("Добре, але можна краще");
+    } else {
+      console.log("Редиска!");
+    }
   }
 }
 
-//Example
-const humburger = new Humburger(
-  Humburger.small_size,
-  Humburger.stuffing_cheese,
-  Humburger.topping_sauce
+//Exempel 1
+
+const student = new Student(
+  "nik",
+  "nik",
+  2000,
+  [90, 90, 90, 90, 90, 90, 90, 90, 90, 90]
 );
-console.log("Calories:" + humburger.calculateCalories());
-console.log("Price:" + humburger.calculatePrice());
 
-console.log("Add some mayo");
-humburger.addTopping(Humburger.topping_mayo);
+student.attendance = [
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+  true,
+];
 
-console.log("Calories:" + humburger.calculateCalories());
-console.log("Price:" + humburger.calculatePrice());
+student.present();
+student.absent();
+student.present();
 
-console.log("Add some potato");
-humburger.addStuffing(Humburger.stuffing_potato);
+console.log(student.summary()); //Молодець
 
-console.log("Calories:" + humburger.calculateCalories());
-console.log("Price:" + humburger.calculatePrice());
+// Exemple 2
+// const student = new Student(
+//   "nik",
+//   "nik",
+//   2000,
+//   [90, 90, 50, 90, 90, 50, 50, 50, 90, 90]
+// );
+
+// student.attendance = [
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+// ];
+
+// student.present();
+// student.absent();
+// student.present();
+
+// console.log(student.summary()); //Добре, але можна краще
+
+// Exemple 3
+// const student = new Student(
+//   "nik",
+//   "nik",
+//   2000,
+//   [90, 90, 50, 90, 90, 50, 50, 50, 90, 90]
+// );
+
+// student.attendance = [
+//   true,
+//   true,
+//   true,
+//   false,
+//   true,
+//   true,
+//   true,
+//   false,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   true,
+//   false,
+//   true,
+//   false,
+//   true,
+//   false,
+//   true,
+//   false,
+//   true,
+// ];
+
+// student.present();
+// student.absent();
+// student.present();
+
+// console.log(student.summary()); //Редиска!
