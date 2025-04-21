@@ -1,0 +1,20 @@
+img {
+  width: 100px;
+  height: 160px;
+  transition: 0.5s ease;
+}
+.timer_conteiner {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: fit-content;
+  padding: 232px 230px 387px 228px;
+  border-radius: 10px;
+  background-image: url(./imgs/digital-clock.png);
+  background-size: cover;
+}
+hr {
+  height: 70px;
+  border: none;
+  border-right: 20px dotted rgb(28, 28, 32);
+}
