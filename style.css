@@ -1,20 +1,21 @@
-img {
-  width: 100px;
-  height: 160px;
-  transition: 0.5s ease;
+.container {
+  margin: 0 auto;
+  width: 400px;
+  overflow: hidden;
 }
-.timer_conteiner {
+.slider {
   display: flex;
-  align-items: center;
-  gap: 15px;
-  width: fit-content;
-  padding: 232px 230px 387px 228px;
-  border-radius: 10px;
-  background-image: url(./imgs/digital-clock.png);
-  background-size: cover;
+  height: 300px;
+  width: 1000%;
+  position: relative;
+  transition: 0.4s ease;
 }
-hr {
-  height: 70px;
-  border: none;
-  border-right: 20px dotted rgb(28, 28, 32);
+.slider img {
+  min-width: 400px;
+}
+.btns {
+  display: flex;
+  width: 35%;
+  justify-content: space-between;
+  margin: 50px auto;
 }
