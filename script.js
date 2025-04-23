@@ -1,43 +1,56 @@
-const slider = document.getElementsByClassName("slider")[0];
-const btnNext = document.getElementById("next_btn");
-const btnPrev = document.getElementById("prev_btn");
-let timerId = setInterval(slideNext, 3000);
+const responses = [
+  "Цікаво, розкажи більше.",
+  "Хмм, я про це не думав.",
+  "О, звучить круто!",
+  "Чому ти так думаєш?",
+  "Це справді цікаво!",
+  "Можеш уточнити?",
+  "Я трохи втомився...",
+  "Можливо варто на цьому зупинитись?",
+  "Дякую за розмову :)",
+  "Я йду, бувай!",
+];
 
-let offset = 0;
+const chatBox = document.getElementById("chatBox");
+const input = document.getElementById("userInput");
+let isChatActive = true;
 
-slider.style.left = offset;
-btnNext.addEventListener("click", function () {
-  if (offset === -3600) {
-    offset = 0;
-    slider.style.left = offset + "px";
-  } else {
-    offset -= 400;
-    slider.style.left = offset + "px";
-  }
-  resetInterval();
-});
-btnPrev.addEventListener("click", function () {
-  if (offset === 0) {
-    offset = -3600;
-    slider.style.left = offset + "px";
-  } else {
-    offset += 400;
-    slider.style.left = offset + "px";
-  }
-  resetInterval();
-});
-
-function slideNext() {
-  if (offset === -3600) {
-    offset = 0;
-    slider.style.left = offset + "px";
-  } else {
-    offset -= 400;
-    slider.style.left = offset + "px";
-  }
+function appendMessage(author, text) {
+  const p = document.createElement("p");
+  p.innerHTML = `<strong>${author}:</strong> ${text}`;
+  chatBox.appendChild(p);
+  chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-function resetInterval() {
-  clearInterval(timerId);
-  timerId = setInterval(slideNext, 3000);
+function sendMessage() {
+  if (!isChatActive) return;
+  const message = input.value.trim();
+  if (!message) return;
+  appendMessage("Ви", message);
+  input.value = "";
+
+  if (message.toLowerCase() === "my watch has ended") {
+    appendMessage("Браузер", "Зрозуміло. Гарного дня!");
+    isChatActive = false;
+    return;
+  }
+
+  const delay = Math.floor(Math.random() * 10000) + 1000;
+  setTimeout(() => {
+    if (!isChatActive) return;
+
+    // 10% ймовірність завершити діалог браузером
+    if (Math.random() < 0.1) {
+      appendMessage("Браузер", "Мені треба йти, до зустрічі!");
+      isChatActive = false;
+      return;
+    }
+
+    const response = responses[Math.floor(Math.random() * responses.length)];
+    appendMessage("Браузер", response);
+  }, delay);
 }
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") sendMessage();
+});
