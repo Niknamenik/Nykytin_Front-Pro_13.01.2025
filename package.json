@@ -17,6 +17,7 @@
   "homepage": "https://github.com/Niknamenik/Nykytin_Front-Pro_13.01.2025#readme",
   "description": "",
   "dependencies": {
-    "bootstrap": "^5.3.5"
+    "bootstrap": "^5.3.5",
+    "moment": "^2.30.1"
   }
 }
