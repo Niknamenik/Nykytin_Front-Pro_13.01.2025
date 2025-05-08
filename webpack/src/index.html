@@ -7,9 +7,421 @@
       rel="stylesheet"
       href="../../BS/node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">FastFood</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="./index.html"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Dropdown
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          id="basket"
+        >
+          <img src="../../imgs/basket.svg" alt="basket" />
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">
+                  Your Orders
+                </h1>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">...</div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button type="button" class="btn btn-primary">
+                  Confirm Order
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+      </div>
+    </nav>
+    <ul class="list-group categories">
+      <li class="drink_container list-group-item" aria-current="true">
+        <label for="show_prod_btn1">Drinks</label>
+        <button class="show_prod_btn" id="show_prod_btn1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </button>
+        <ul class="child-list-group">
+          <li class="list-group-item">
+            <div class="card" style="width: 18rem" data-product-name="bumble">
+              <img
+                src="../../imgs/food/photo_10_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Bumble</h5>
+                <ul class="card-text">
+                  <li>Double espresso - 60 ml</li>
+                  <li>Orange fresh - 100 ml</li>
+                  <li>Caramel syrup - 30 ml</li>
+                  <li>Crushed ice - 200g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="bumble">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-name="strawberry_mojito"
+            >
+              <img
+                src="../../imgs/food/photo_11_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Strawberry mojito</h5>
+                <ul class="card-text">
+                  <li>White rum Cubana Cultura - 50ml</li>
+                  <li>Soda - 100ml</li>
+                  <li>Lime - 60g</li>
+                  <li>Strawberry - 120g</li>
+                  <li>Mint - 3g</li>
+                  <li>Crushed ice - 200g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="strawberry_mojito">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-name="cappuccino"
+            >
+              <img
+                src="../../imgs/food/photo_4_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Cappuccino</h5>
+                <ul class="card-text">
+                  <li>Espresso - 30ml</li>
+                  <li>Steamed milk - 30ml</li>
+                  <li>Foam - 30ml</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="cappuccino">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="breakfast_container list-group-item" aria-current="true">
+        <label for="show_prod_btn2">Burgers and sandwiches</label>
+        <button class="show_prod_btn" id="show_prod_btn2">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </button>
+        <ul class="child-list-group">
+          <li class="list-group-item">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-name="english_breakfast"
+            >
+              <img
+                src="../../imgs/food/photo_2_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">English breakfast</h5>
+                <ul class="card-text">
+                  <li>Eggs - 2</li>
+                  <li>Tosts - 2 pieces</li>
+                  <li>Avocado - 30g</li>
+                  <li>Spinach - 10g</li>
+                  <li>Bacon - 20g</li>
+                  <li>Sauce - 30g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="english_breakfast">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="card" style="width: 18rem" data-product-name="sandwich">
+              <img
+                src="../../imgs/food/photo_3_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Sandwich</h5>
+                <ul class="card-text">
+                  <li>Tosts - 2 pieces</li>
+                  <li>Tomatoes - 30g</li>
+                  <li>Сabbage leaf - 10g</li>
+                  <li>Сucumber - 10g</li>
+                  <li>Chicken - 50g</li>
+                  <li>BBQ Souce - 30g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="sandwich">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="card" style="width: 18rem" data-product-name="burger">
+              <img
+                src="../../imgs/food/photo_2_2025-05-08_15-44-41.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Burger with fries</h5>
+                <ul class="card-text">
+                  <li>Beef cutlet - 100g</li>
+                  <li>Сabbage leaf - 10g</li>
+                  <li>Tomatoes - 30g</li>
+                  <li>Cheese - 10g</li>
+                  <li>BBQ Souce - 30g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="burger">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li class="desserts_container list-group-item" aria-current="true">
+        <label for="show_prod_btn3">Desserts</label>
+        <button class="show_prod_btn" id="show_prod_btn3">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-chevron-down"
+            viewBox="0 0 16 16"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"
+            />
+          </svg>
+        </button>
+        <ul class="child-list-group">
+          <li class="list-group-item">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-name="croissant"
+            >
+              <img
+                src="../../imgs/food/photo_15_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Сroissant</h5>
+                <ul class="card-text">
+                  <li>Cream souce - 50g</li>
+                  <li>Raspberry - 20g</li>
+                  <li>Raspberry chocolate - 10g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="croissant">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-name="mini_cheesecakes"
+            >
+              <img
+                src="../../imgs/food/photo_16_2025-05-08_00-18-34.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Сheesecakes with sour cream</h5>
+                <ul class="card-text">
+                  <li>Сheesecakes - 10 (1 - 30g)</li>
+                  <li>Strawberry - 50g</li>
+                  <li>Cream souce - 50g</li>
+                  <li>Powdered sugar - 3g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="mini_cheesecakes">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-name="cheesecake"
+            >
+              <img
+                src="../../imgs/food/photo_1_2025-05-08_15-44-41.jpg"
+                class="card-img-top"
+                alt="..."
+              />
+              <div class="card-body">
+                <h5 class="card-title">Сheesecake</h5>
+                <ul class="card-text">
+                  <li>Сheesecake - 150g</li>
+                  <li>Strawberry - 5g</li>
+                  <li>Powdered sugar - 3g</li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <span class="price" data-product-name="cheesecake">
+                  Price: ---
+                </span>
+                <button class="order_btn btn btn-primary">+</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
     <script src="../../BS/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../moment/node_modules/moment/min/moment.min.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
