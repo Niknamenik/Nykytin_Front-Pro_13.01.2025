@@ -115,7 +115,7 @@
       </div>
     </nav>
     <ul class="list-group categories">
-      <li class="drink_container list-group-item" aria-current="true">
+      <li class="drink_container list-group-item">
         <label for="show_prod_btn1">Drinks</label>
         <button class="show_prod_btn" id="show_prod_btn1">
           <svg
@@ -134,9 +134,14 @@
         </button>
         <ul class="child-list-group">
           <li class="list-group-item">
-            <div class="card" style="width: 18rem" data-product-name="bumble">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-id="bumble"
+              data-product-name="Bumble"
+            >
               <img
-                src="../../imgs/food/photo_10_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/bumble.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -150,10 +155,25 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="bumble">
-                  Price: ---
-                </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <span class="price" data-product-id="bumble"> Price: --- </span>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="bumble"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
@@ -161,10 +181,11 @@
             <div
               class="card"
               style="width: 18rem"
-              data-product-name="strawberry_mojito"
+              data-product-id="strawberry_mojito"
+              data-product-name="Strawberry mojito"
             >
               <img
-                src="../../imgs/food/photo_11_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/strawberry_mojito.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -180,10 +201,27 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="strawberry_mojito">
+                <span class="price" data-product-id="strawberry_mojito">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="strawberry_mojito"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
@@ -191,10 +229,11 @@
             <div
               class="card"
               style="width: 18rem"
-              data-product-name="cappuccino"
+              data-product-id="cappuccino"
+              data-product-name="Cappuccino"
             >
               <img
-                src="../../imgs/food/photo_4_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/cappuccino.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -207,16 +246,33 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="cappuccino">
+                <span class="price" data-product-id="cappuccino">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="cappuccino"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
         </ul>
       </li>
-      <li class="breakfast_container list-group-item" aria-current="true">
+      <li class="breakfast_container list-group-item">
         <label for="show_prod_btn2">Burgers and sandwiches</label>
         <button class="show_prod_btn" id="show_prod_btn2">
           <svg
@@ -238,10 +294,11 @@
             <div
               class="card"
               style="width: 18rem"
-              data-product-name="english_breakfast"
+              data-product-id="english_breakfast"
+              data-product-name="English breakfast"
             >
               <img
-                src="../../imgs/food/photo_2_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/english_breakfast.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -257,17 +314,39 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="english_breakfast">
+                <span class="price" data-product-id="english_breakfast">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="english_breakfast"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
           <li class="list-group-item">
-            <div class="card" style="width: 18rem" data-product-name="sandwich">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-id="sandwich"
+              data-product-name="Sandwich"
+            >
               <img
-                src="../../imgs/food/photo_3_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/sandwich.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -283,17 +362,39 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="sandwich">
+                <span class="price" data-product-id="sandwich">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="sandwich"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
           <li class="list-group-item">
-            <div class="card" style="width: 18rem" data-product-name="burger">
+            <div
+              class="card"
+              style="width: 18rem"
+              data-product-id="burger"
+              data-product-name="Burger with fries"
+            >
               <img
-                src="../../imgs/food/photo_2_2025-05-08_15-44-41.jpg"
+                src="../../imgs/food/burger.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -308,16 +409,31 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="burger">
-                  Price: ---
-                </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <span class="price" data-product-id="burger"> Price: --- </span>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="burger"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
         </ul>
       </li>
-      <li class="desserts_container list-group-item" aria-current="true">
+      <li class="desserts_container list-group-item">
         <label for="show_prod_btn3">Desserts</label>
         <button class="show_prod_btn" id="show_prod_btn3">
           <svg
@@ -339,10 +455,11 @@
             <div
               class="card"
               style="width: 18rem"
-              data-product-name="croissant"
+              data-product-id="croissant"
+              data-product-name="Сroissant"
             >
               <img
-                src="../../imgs/food/photo_15_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/croissant.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -355,10 +472,27 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="croissant">
+                <span class="price" data-product-id="croissant">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="croissant"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
@@ -366,10 +500,11 @@
             <div
               class="card"
               style="width: 18rem"
-              data-product-name="mini_cheesecakes"
+              data-product-id="mini_cheesecakes"
+              data-product-name="Сheesecakes with sour cream"
             >
               <img
-                src="../../imgs/food/photo_16_2025-05-08_00-18-34.jpg"
+                src="../../imgs/food/mini_cheesecakes.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -383,10 +518,27 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="mini_cheesecakes">
+                <span class="price" data-product-id="mini_cheesecakes">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="mini_cheesecakes"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
@@ -394,10 +546,11 @@
             <div
               class="card"
               style="width: 18rem"
-              data-product-name="cheesecake"
+              data-product-id="cheesecake"
+              data-product-name="Сheesecake"
             >
               <img
-                src="../../imgs/food/photo_1_2025-05-08_15-44-41.jpg"
+                src="../../imgs/food/cheesecake.jpg"
                 class="card-img-top"
                 alt="..."
               />
@@ -410,14 +563,59 @@
                 </ul>
               </div>
               <div class="card-footer">
-                <span class="price" data-product-name="cheesecake">
+                <span class="price" data-product-id="cheesecake">
                   Price: ---
                 </span>
-                <button class="order_btn btn btn-primary">+</button>
+                <button
+                  class="order_btn btn btn-primary"
+                  id="order_editor"
+                  data-product-id="cheesecake"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    class="bi bi-basket"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9zM1 7v1h14V7zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5m2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5"
+                    />
+                  </svg>
+                </button>
               </div>
             </div>
           </li>
         </ul>
+      </li>
+      <li class="list-group-item" id="order_edit_modal" style>
+        <div class="order_editing_conteiner">
+          <img id="product_img" class="card-img-top" alt="product img" />
+          <p class="editor_product_name"></p>
+          <label for="stuffing"
+            >Add some stuffing:<br />
+            <select name="stuffing" id="stuffing-additor">
+              <option value=""></option>
+            </select>
+            <button>+</button>
+          </label>
+          <ul class="editing_order"></ul>
+          <button id="close_editor_btn">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+              />
+            </svg>
+          </button>
+        </div>
       </li>
     </ul>
     <script src="../../BS/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

@@ -48,6 +48,62 @@
   color: green;
   font-size: large;
 }
+#order_edit_modal {
+  display: none;
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 255, 0.61);
+}
+#order_edit_modal.editing {
+  display: block;
+}
+.order_editing_conteiner {
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  background-color: #ffff;
+  margin: 10% auto;
+  border-radius: 10px;
+  border: 2px solid blue;
+  overflow: hidden;
+}
+#close_editor_btn {
+  position: absolute;
+  background: none;
+  border: 2px solid rgba(2, 2, 179, 0.904);
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  padding: 0;
+  top: 8px;
+  right: 10px;
+  cursor: pointer;
+  background-color: #ffff;
+}
+.editor_product_name {
+  font-weight: 700;
+  font-size: 20px;
+  padding: 10px 10px 0 10px;
+}
+.del_Stuffing {
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 5px;
+  color: #ffff;
+}
+.editing_order {
+  padding: 0 10px;
+}
+.editing_order li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin: 10px 0;
+}
 
 @media screen and (max-width: 990px) {
   #basket {
