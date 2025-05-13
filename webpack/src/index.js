@@ -332,6 +332,7 @@ addOrderToCart();
 
 editORderBtn.forEach((element) => {
   element.addEventListener("click", function () {
+    formEditor.reset();
     orderEditModal.classList.toggle("editing");
     // scrollController.disable();
     const productId = this.dataset.productId;
