@@ -89,7 +89,7 @@
   padding: 10px 10px 0 10px;
 }
 .del_Stuffing {
-  background-color: #0d6efd;
+  background-color: rgb(214, 6, 6);
   border: none;
   border-radius: 5px;
   color: #ffff;
@@ -103,6 +103,32 @@
   align-items: center;
   padding: 0;
   margin: 10px 0;
+}
+.order_editing_conteiner label {
+  padding: 0 10px;
+}
+.order_editing_conteiner fieldset {
+  padding: 10px 0;
+}
+#addOrderBtn {
+  margin-bottom: 10px;
+  margin-left: calc(100% - 120px);
+}
+#stuffing-additor {
+  border: 1px solid #0400ff;
+  padding: 6px 0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.stuffing_select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#add_stuffing_btn {
+  margin-bottom: 6px;
+}
+#editing_prise {
 }
 
 @media screen and (max-width: 990px) {

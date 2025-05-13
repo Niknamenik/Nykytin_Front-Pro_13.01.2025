@@ -589,19 +589,71 @@
           </li>
         </ul>
       </li>
-      <li class="list-group-item" id="order_edit_modal" style>
-        <div class="order_editing_conteiner">
+      <li class="list-group-item" id="order_edit_modal">
+        <form
+          class="order_editing_conteiner"
+          action="no-action"
+          id="form_editor"
+        >
           <img id="product_img" class="card-img-top" alt="product img" />
           <p class="editor_product_name"></p>
-          <label for="stuffing"
+          <fieldset>
+            <label for="big_size"
+              >Big Size
+              <input type="radio" id="big_size" name="size" required />
+            </label>
+            <label for="small_size"
+              >Standart Size
+              <input type="radio" id="small_size" name="size" checked />
+            </label>
+          </fieldset>
+          <label for="stuffing-additor" id="stuffing_select"
             >Add some stuffing:<br />
-            <select name="stuffing" id="stuffing-additor">
-              <option value=""></option>
+            <select name="stuffing" id="stuffing-additor" required>
+              <optgroup label="Drinks"></optgroup>
+              <option value="" selected disabled>Add some...</option>
+              <option value="doubleEspresso">Double espresso - 60 ml</option>
+              <option value="orangeFresh">Orange fresh - 100 ml</option>
+              <option value="caramelSyrup">Caramel syrup - 30 ml</option>
+              <option value="crushedIce">Crushed ice - 200g</option>
+              <option value="whiteRum">White rum Cubana Cultura - 50ml</option>
+              <option value="soda">Soda - 100ml</option>
+              <option value="espresso">Espresso - 30ml</option>
+              <option value="foam">Foam - 30ml</option>
+              <hr />
+              <optgroup label="Food"></optgroup>
+              <option value="lime">Lime - 60g</option>
+              <option value="strawberry">Strawberry - 120g</option>
+              <option value="mint">Mint - 3g</option>
+              <option value="eggs">Eggs - 2</option>
+              <option value="tosts">Tosts - 2 pieces</option>
+              <option value="avocado">Avocado - 30g</option>
+              <option value="spinach">Spinach - 10g</option>
+              <option value="bacon">Bacon - 20g</option>
+              <option value="sauce">Sauce - 30g</option>
+              <option value="tomatoes">Tomatoes - 30g</option>
+              <option value="cabbageLeaf">Сabbage leaf - 10g</option>
+              <option value="cucumber">Сucumber - 10g</option>
+              <option value="chicken">Chicken - 50g</option>
+              <option value="BBQSouce">BBQ Souce - 30g</option>
+              <option value="beefCutlet">Beef cutlet - 100g</option>
+              <option value="cheese">Cheese - 10g</option>
+              <option value="creamSouce">Cream souce - 50g</option>
+              <option value="raspberry">Raspberry - 20g</option>
+              <option value="raspberryChocolate">
+                Raspberry chocolate - 10g
+              </option>
+              <option value="miniСheesecake">Mini cheesecake - 30g</option>
+              <option value="powderedSugar">Powdered sugar - 3g</option>
+              <option value="cheesecake">Сheesecake - 150g</option>
+              <option value="halfStrawberry">Strawberry - 5g</option>
             </select>
-            <button>+</button>
+            <button type="button" class="btn btn-primary" id="add_stuffing_btn">
+              +
+            </button>
           </label>
           <ul class="editing_order"></ul>
-          <button id="close_editor_btn">
+          <button id="close_editor_btn" type="button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -615,7 +667,7 @@
               />
             </svg>
           </button>
-        </div>
+        </form>
       </li>
     </ul>
     <script src="../../BS/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
