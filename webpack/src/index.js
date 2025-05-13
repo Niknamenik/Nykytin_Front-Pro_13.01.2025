@@ -6,14 +6,14 @@ const orderBtnList = document.querySelectorAll(".order_btn");
 const productCardList = document.getElementsByClassName("card");
 const productPricesList = document.querySelectorAll(".price");
 const curStuffingList = document.querySelector(".editing_order");
-const scrollController = {
-  disable() {
-    document.body.style.cssText = `overflow: hidden;`;
-  },
-  enable() {
-    document.body.style.cssText = `overflow:'';`;
-  },
-};
+// const scrollController = {
+//   disable() {
+//     document.body.style.cssText = `overflow: hidden;`;
+//   },
+//   enable() {
+//     document.body.style.cssText = `overflow:'';`;
+//   },
+// };
 const formEditor = document.getElementById("form_editor");
 const addStuffingBtn = document.getElementById("add_stuffing_btn");
 const stuffingSelector = document.getElementById("stuffing-additor");
@@ -331,13 +331,13 @@ const closeEdidorBtn = document.querySelector("#close_editor_btn");
 
 closeEdidorBtn.addEventListener("click", () => {
   orderEditModal.classList.toggle("editing");
-  scrollController.enable();
+  // scrollController.enable();
 });
 
 editORderBtn.forEach((element) => {
   element.addEventListener("click", function () {
     orderEditModal.classList.toggle("editing");
-    scrollController.disable();
+    // scrollController.disable();
     const productId = this.dataset.productId;
     const img = document.getElementById("product_img");
     const addBtn = document.createElement("button");
@@ -370,8 +370,23 @@ editORderBtn.forEach((element) => {
 
     addStuffingBtn.removeEventListener("click", stuffingAdding);
     addStuffingBtn.addEventListener("click", stuffingAdding);
+
+    document.documentElement.scrollTop = 0;
+
+    orderSaving();
   });
 });
+
+function orderSaving() {
+  const addOrderBtn = document.getElementById("addOrderBtn");
+  const sizeRadio = document.getElementsByName("size");
+  addOrderBtn.addEventListener("click", function () {
+    console.log(
+      [...sizeRadio].filter((element) => element.checked !== undefined)
+    );
+    console.log(currentProduct);
+  });
+}
 
 formEditor.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -394,8 +409,6 @@ function stuffingDeleting() {
   this.parentElement.remove();
   resetPrice();
 }
-
-function classCreator(currentProductClass) {}
 
 function stuffingListCreator(stuffingList) {
   for (let kej of stuffingList) {

@@ -50,9 +50,9 @@
 }
 #order_edit_modal {
   display: none;
-  position: fixed;
+  position: absolute;
   min-width: 100%;
-  min-height: 100%;
+  min-height: 300%;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 255, 0.61);
@@ -61,14 +61,17 @@
   display: block;
 }
 .order_editing_conteiner {
-  position: relative;
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%);
   width: fit-content;
   height: fit-content;
   background-color: #ffff;
-  margin: 10% auto;
+  margin: 0 auto;
   border-radius: 10px;
   border: 2px solid blue;
-  overflow: hidden;
+  overflow: visible;
 }
 #close_editor_btn {
   position: absolute;
