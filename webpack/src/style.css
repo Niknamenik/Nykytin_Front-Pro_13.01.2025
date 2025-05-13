@@ -71,7 +71,7 @@
   margin: 0 auto;
   border-radius: 10px;
   border: 2px solid blue;
-  overflow: visible;
+  overflow: hidden;
 }
 #close_editor_btn {
   position: absolute;
@@ -113,15 +113,21 @@
 .order_editing_conteiner fieldset {
   padding: 10px 0;
 }
+.order_editing_conteiner img {
+  max-width: 350px;
+  max-height: 500px;
+}
 #addOrderBtn {
   margin-bottom: 10px;
-  margin-left: calc(100% - 120px);
+  /* margin-left: calc(100% - 120px); */
 }
 #stuffing-additor {
+  width: calc(100% - 42px);
   border: 1px solid #0400ff;
   padding: 6px 0;
   border-radius: 10px;
   margin-bottom: 10px;
+  margin-top: 5px;
 }
 .stuffing_select {
   display: flex;
@@ -130,6 +136,57 @@
 }
 #add_stuffing_btn {
   margin-bottom: 6px;
+}
+#stuffing_select {
+  width: 100%;
+}
+#editing_prise {
+  display: inline-block;
+  width: calc(100% - 98px);
+}
+#del_order_btn {
+  padding: 5px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: fit-content;
+  background-color: rgb(226, 122, 200);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 500;
+  height: fit-content;
+}
+#cart_body img {
+  max-width: 50%;
+  border-radius: 20px;
+  max-height: 400px;
+}
+#cart_body li {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #af7eff;
+  position: relative;
+  border-radius: 22px;
+
+  margin-bottom: 20px;
+}
+#cart_body li p {
+  margin-top: 10px;
+  font-size: 20px;
+  font-weight: 700;
+}
+#cart_body li ul li {
+  margin-bottom: 10px;
+  border: none;
+}
+#cart_body li ul {
+  width: 100%;
+  padding-bottom: 45px;
+}
+.modal-footer {
+  display: flex;
+  justify-content: space-between;
 }
 
 @media screen and (max-width: 990px) {

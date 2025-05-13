@@ -18,6 +18,7 @@ const formEditor = document.getElementById("form_editor");
 const addStuffingBtn = document.getElementById("add_stuffing_btn");
 const stuffingSelector = document.getElementById("stuffing-additor");
 let currentProduct;
+const orders = [];
 
 showBtnList.forEach((element) => {
   element.addEventListener("click", function () {
@@ -39,139 +40,139 @@ const bigSize = 2;
 const doubleEspresso = {
   price: 1,
   milliliters: 60,
-  name: "Double espresso - 60 ml",
+  name: "Double espresso",
   id: "doubleEspresso",
 };
 const orangeFresh = {
   price: 1,
   milliliters: 100,
-  name: "Orange fresh - 100 ml",
+  name: "Orange fresh",
   id: "orangeFresh",
 };
 const caramelSyrup = {
   price: 1,
   milliliters: 30,
-  name: "Caramel syrup - 30 ml",
+  name: "Caramel syrup",
   id: "caramelSyrup",
 };
 const crushedIce = {
   price: 1,
   gramm: 200,
-  name: "Crushed ice - 200g",
+  name: "Crushed ice",
   id: "crushedIce",
 };
 const whiteRum = {
   price: 1,
   milliliters: 50,
-  name: "White rum Cubana Cultura - 50ml",
+  name: "White rum Cubana Cultura",
   id: "whiteRum",
 };
-const soda = { price: 1, milliliters: 100, name: "Soda - 100ml", id: "soda" };
-const lime = { price: 1, gramm: 60, name: "Lime - 60g", id: "lime" };
+const soda = { price: 1, milliliters: 100, name: "Soda", id: "soda" };
+const lime = { price: 1, gramm: 60, name: "Lime", id: "lime" };
 const strawberry = {
   price: 1,
   gramm: 120,
-  name: "Strawberry - 120g",
+  name: "Strawberry",
   id: "strawberry",
 };
 const halfStrawberry = {
   price: 1,
   gramm: 5,
-  name: "Strawberry - 5g",
+  name: "Strawberry",
   id: "halfStrawberry",
 };
-const mint = { price: 1, gramm: 3, name: "Mint - 3g", id: "mint" };
+const mint = { price: 1, gramm: 3, name: "Mint", id: "mint" };
 const espresso = {
   price: 1,
   milliliters: 30,
-  name: "Espresso - 30ml",
+  name: "Espresso",
   id: "espresso",
 };
 const steamedMilk = {
   price: 1,
   milliliters: 30,
-  name: "Steamed milk - 30ml",
+  name: "Steamed milk",
   id: "steamedMilk",
 };
-const foam = { price: 1, milliliters: 30, name: "Foam - 30ml", id: "foam" };
-const eggs = { price: 1, pieces: 2, name: "Eggs - 2", id: "eggs" };
-const tosts = { price: 1, pieces: 2, name: "Tosts - 2 pieces", id: "tosts" };
-const avocado = { price: 1, gramm: 30, name: "Avocado - 30g", id: "avocado" };
-const spinach = { price: 1, gramm: 10, name: "Spinach - 10g", id: "spinach" };
-const bacon = { price: 1, gramm: 20, name: "Bacon - 20g", id: "bacon" };
-const sauce = { price: 1, gramm: 30, name: "Sauce - 30g", id: "sauce" };
+const foam = { price: 1, milliliters: 30, name: "Foam", id: "foam" };
+const eggs = { price: 1, pieces: 2, name: "Eggs", id: "eggs" };
+const tosts = { price: 1, pieces: 2, name: "Tosts", id: "tosts" };
+const avocado = { price: 1, gramm: 30, name: "Avocado", id: "avocado" };
+const spinach = { price: 1, gramm: 10, name: "Spinach", id: "spinach" };
+const bacon = { price: 1, gramm: 20, name: "Bacon", id: "bacon" };
+const sauce = { price: 1, gramm: 30, name: "Sauce", id: "sauce" };
 const tomatoes = {
   price: 1,
   gramm: 30,
-  name: "Tomatoes - 30g",
+  name: "Tomatoes",
   id: "tomatoes",
 };
 const cabbageLeaf = {
   price: 1,
   gramm: 10,
-  name: "Сabbage leaf - 10g",
+  name: "Сabbage leaf",
   id: "cabbageLeaf",
 };
 const cucumber = {
   price: 1,
   gramm: 10,
-  name: "Сucumber - 10g",
+  name: "Сucumber",
   id: "cucumber",
 };
-const chicken = { price: 1, gramm: 50, name: "Chicken - 50g", id: "chicken" };
+const chicken = { price: 1, gramm: 50, name: "Chicken", id: "chicken" };
 const BBQSouce = {
   price: 1,
   gramm: 30,
-  name: "BBQ Souce - 30g",
+  name: "BBQ Souce",
   id: "BBQSouce",
 };
 const beefCutlet = {
   price: 1,
   gramm: 100,
-  name: "Beef cutlet - 100g",
+  name: "Beef cutlet",
   id: "beefCutlet",
 };
-const cheese = { price: 1, gramm: 10, name: "Cheese - 10g", id: "cheese" };
+const cheese = { price: 1, gramm: 10, name: "Cheese", id: "cheese" };
 const creamSouce = {
   price: 1,
   gramm: 50,
-  name: "Cream souce - 50g",
+  name: "Cream souce",
   id: "creamSouce",
 };
 const raspberry = {
   price: 1,
   gramm: 20,
-  name: "Raspberry - 20g",
+  name: "Raspberry",
   id: "raspberry",
 };
 const raspberryChocolate = {
   price: 1,
   gramm: 10,
-  name: "Raspberry chocolate - 10g",
+  name: "Raspberry chocolate",
   id: "raspberryChocolate",
 };
 const cheesecakes = {
   price: 10,
   gramm: 300,
-  name: "Сheesecakes - 10 (1 - 30g)",
+  name: "Сheesecakes",
   id: "cheesecakes",
 };
 const miniСheesecake = {
   price: 1,
   gramm: 30,
-  name: "Mini Cheesecake - 30g",
+  name: "Mini Cheesecake",
   id: "miniСheesecake",
 };
 const powderedSugar = {
   price: 1,
   gramm: 3,
-  name: "Powdered sugar - 3g",
+  name: "Powdered sugar",
   id: "powderedSugar",
 };
 const cheesecake = {
   price: 4,
   gramm: 150,
-  name: "Сheesecake - 150g",
+  name: "Сheesecake",
   id: "cheesecake",
 };
 const stuffingList = [
@@ -211,17 +212,14 @@ const stuffingList = [
 ];
 
 class Food {
-  constructor(foodName, size, stuffing = [], topping = []) {
+  constructor(foodName, size, stuffing = []) {
     this.foodName = foodName;
     this.size = size;
     this.stuffing = [...stuffing];
-    this.topping = [...topping];
   }
   calculatePrice() {
     let price =
-      this.size *
-      (this.stuffing.reduce((acc, curr) => acc + curr.price, 0) +
-        this.topping.reduce((acc, curr) => acc + curr.price, 0));
+      this.size * this.stuffing.reduce((acc, curr) => acc + curr.price, 0);
     return price;
   }
   addStuffing(stuffing) {
@@ -231,10 +229,6 @@ class Food {
   removeStiffing(stuffing) {
     const index = this.stuffing.indexOf(stuffing);
     this.stuffing.splice(index, 1);
-  }
-
-  addTopping(topping) {
-    this.topping.push(topping);
   }
 }
 
@@ -334,6 +328,8 @@ closeEdidorBtn.addEventListener("click", () => {
   // scrollController.enable();
 });
 
+addOrderToCart();
+
 editORderBtn.forEach((element) => {
   element.addEventListener("click", function () {
     orderEditModal.classList.toggle("editing");
@@ -380,11 +376,23 @@ editORderBtn.forEach((element) => {
 function orderSaving() {
   const addOrderBtn = document.getElementById("addOrderBtn");
   const sizeRadio = document.getElementsByName("size");
+  const ordersFormLS = JSON.parse(localStorage.getItem("orders"));
   addOrderBtn.addEventListener("click", function () {
-    console.log(
-      [...sizeRadio].filter((element) => element.checked !== undefined)
-    );
-    console.log(currentProduct);
+    const size = [...sizeRadio].filter((element) => element.checked == true)[0]
+      .value;
+    currentProduct.size = size;
+    currentProduct.totalPrice = currentProduct.calculatePrice();
+    currentProduct.orderId = +new Date();
+    orderEditModal.classList.toggle("editing");
+    orders.push(currentProduct);
+    if (ordersFormLS) {
+      ordersFormLS.push(currentProduct);
+      localStorage.setItem("orders", JSON.stringify(ordersFormLS));
+    } else {
+      localStorage.setItem("orders", JSON.stringify(orders));
+    }
+
+    addOrderToCart();
   });
 }
 
@@ -427,8 +435,95 @@ function stuffingListCreator(stuffingList) {
   }
 }
 
+function getSizeOfProduct(element) {
+  currentProduct.size = element.value;
+  resetPrice();
+}
+
 function resetPrice() {
   const spanForPrice = document.getElementById("editing_prise");
 
   spanForPrice.innerText = `${currentProduct.calculatePrice()}$`;
+}
+function addOrderToCart() {
+  const ordersFromLS = localStorage.getItem("orders");
+  if (ordersFromLS) {
+    const cartBody = document.getElementById("cart_body");
+
+    cartBody.innerHTML = "";
+    for (let kej of JSON.parse(ordersFromLS)) {
+      const listItem = document.createElement("li");
+      const p = document.createElement("p");
+      const stuffingList = document.createElement("ul");
+      const delOrderBtn = document.createElement("button");
+      const spanForPrice = document.createElement("span");
+      const img = document.createElement("img");
+      const productId = kej.foodName;
+      const currentProducrCard = [...productCardList].filter(
+        (element) => element.dataset.productId == productId
+      );
+      const productName = currentProducrCard[0].dataset.productName;
+
+      img.setAttribute("src", `../../imgs/food/${productId}.jpg`);
+      delOrderBtn.setAttribute("id", "del_order_btn");
+      delOrderBtn.innerText = "Delete order";
+      delOrderBtn.dataset.orderId = kej.orderId;
+      spanForPrice.setAttribute("class", "price final_price");
+      p.innerHTML = `${productName} - `;
+      spanForPrice.innerText = `${kej.totalPrice}$`;
+      listItem.append(img);
+      p.append(spanForPrice);
+      stuffingList.append(p);
+      listItem.append(stuffingList);
+      listItem.append(delOrderBtn);
+      cartBody.append(listItem);
+
+      delOrderBtn.addEventListener("click", function () {
+        const orderId = this.dataset.orderId;
+        const curOrdersFormLS = localStorage.getItem("orders");
+        const currOrders = JSON.parse(curOrdersFormLS);
+        currOrders.splice(
+          currOrders.indexOf(
+            currOrders.filter((element) => element.orderId == orderId)[0]
+          ),
+          1
+        );
+        localStorage.setItem("orders", JSON.stringify(currOrders));
+
+        this.parentElement.remove();
+        setTotalPrice();
+      });
+
+      for (let stuffing of kej.stuffing) {
+        const li = document.createElement("li");
+
+        li.innerText = `${stuffing.name}`;
+        stuffingList.append(li);
+      }
+    }
+    setTotalPrice();
+  } else {
+    return;
+  }
+}
+
+function setTotalPrice() {
+  const cartFooter = document.querySelector(".modal-footer");
+  const priceList = document.getElementsByClassName("final_price");
+  let spanForFinalPrice = "";
+  if (document.querySelector(".total_price")) {
+    spanForFinalPrice = document.querySelector(".total_price");
+  } else {
+    spanForFinalPrice = document.createElement("span");
+  }
+
+  const priceArr = [...priceList].map(
+    (element) => (element = parseInt(element.innerHTML))
+  );
+  spanForFinalPrice.innerText = `Total price: ${priceArr.reduce(
+    (acc, curr) => acc + curr,
+    0
+  )}$`;
+  cartFooter.prepend(spanForFinalPrice);
+  spanForFinalPrice.setAttribute("class", "price total_price");
 }
