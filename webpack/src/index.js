@@ -230,7 +230,6 @@ class Food {
 
   removeStiffing(stuffing) {
     const index = this.stuffing.indexOf(stuffing);
-    console.log(index);
     this.stuffing.splice(index, 1);
   }
 
@@ -358,7 +357,6 @@ editORderBtn.forEach((element) => {
       (element) => element.foodName == productId
     )[0];
     currentProduct = currentProductClass;
-    console.log(currentProduct);
 
     addBtn.textContent = "Add order";
     addBtn.setAttribute("class", "btn btn-primary");
@@ -386,17 +384,14 @@ function stuffingAdding() {
     );
     stuffingListCreator(stuffingName);
     currentProduct.addStuffing(stuffingName[0]);
-    console.log(currentProduct);
     resetPrice();
   }
 }
 function stuffingDeleting() {
   const stuffingId = this.parentElement.dataset.productId;
   const stuffing = stuffingList.filter((element) => element.id === stuffingId);
-  console.log(stuffing[0]);
   currentProduct.removeStiffing(stuffing[0]);
   this.parentElement.remove();
-  console.log(currentProduct);
   resetPrice();
 }
 
