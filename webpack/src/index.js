@@ -8,10 +8,12 @@ const productPricesList = document.querySelectorAll(".price");
 const curStuffingList = document.querySelector(".editing_order");
 // const scrollController = {
 //   disable() {
-//     document.body.style.cssText = `overflow: hidden;`;
+//     document.body.style.cssText = `
+//     overflow: hidden;`;
 //   },
 //   enable() {
-//     document.body.style.cssText = `overflow:'';`;
+//     document.body.style.cssText = `
+//     overflow:'';`;
 //   },
 // };
 const formEditor = document.getElementById("form_editor");
