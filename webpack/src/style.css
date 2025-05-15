@@ -50,28 +50,31 @@
 }
 #order_edit_modal {
   display: none;
-  position: absolute;
+  position: fixed;
   min-width: 100%;
-  min-height: 300%;
+  height: 100%;
+  padding-bottom: 30px;
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 255, 0.61);
+  overflow-y: scroll;
+  z-index: 2;
 }
 #order_edit_modal.editing {
   display: block;
 }
 .order_editing_conteiner {
-  position: absolute;
+  position: relative;
   top: 50px;
   left: 50%;
-  transform: translate(-50%);
+  transform: translate(-50%, 0);
   width: fit-content;
   height: fit-content;
   background-color: #ffff;
-  margin: 0 auto;
   border-radius: 10px;
   border: 2px solid blue;
   overflow: hidden;
+  margin-bottom: 70px;
 }
 #close_editor_btn {
   position: absolute;
