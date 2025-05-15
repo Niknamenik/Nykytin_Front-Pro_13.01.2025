@@ -7,7 +7,7 @@
       rel="stylesheet"
       href="../../BS/node_modules/bootstrap/dist/css/bootstrap.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -63,7 +63,6 @@
             </button>
           </form>
         </div>
-        <!-- Button trigger modal -->
         <button
           type="button"
           class="btn btn-primary"
@@ -73,8 +72,6 @@
         >
           <img src="../../imgs/basket.svg" alt="basket" />
         </button>
-
-        <!-- Modal -->
         <div
           class="modal fade"
           id="exampleModal"
@@ -107,7 +104,12 @@
                   >
                     Close
                   </button>
-                  <button type="button" class="btn btn-primary">
+                  <button
+                    data-bs-dismiss="modal"
+                    id="confirm_order"
+                    type="button"
+                    class="btn btn-primary"
+                  >
                     Confirm Order
                   </button>
                 </div>
@@ -115,7 +117,6 @@
             </div>
           </div>
         </div>
-        <!-- Modal -->
       </div>
     </nav>
     <ul class="list-group categories">
@@ -605,7 +606,7 @@
             <label for="big_size"
               >Big Size
               <input
-                onclick="getSizeOfProduct (this)"
+                class="size_input"
                 type="radio"
                 id="big_size"
                 name="size"
@@ -616,7 +617,7 @@
             <label for="standart_size"
               >Standart Size
               <input
-                onclick="getSizeOfProduct (this)"
+                class="size_input"
                 type="radio"
                 id="standart_size"
                 name="size"
@@ -688,6 +689,5 @@
     </ul>
     <script src="../../BS/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../../moment/node_modules/moment/min/moment.min.js"></script>
-    <script src="./index.js"></script>
   </body>
 </html>
