@@ -1,17 +1,42 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
 import "./App.css";
-import { Header } from "./header";
-import { Content } from "./content";
+import { Form } from "./components/Form";
+import { Ulist } from "./components/Ulist";
 
-function App() {
-  return (
-    <div>
-      <Header />
-      <Content />
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: [],
+    };
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
+
+  handleFormSubmit(title) {
+    if (!title) {
+      return;
+    }
+    const newTodos = [
+      ...this.state.todos,
+      { title, done: false, id: +new Date() },
+    ];
+    this.setState({ todos: newTodos });
+  }
+
+  handleDelete(id) {
+    const newTodos = this.state.todos.filter((element) => element.id !== id);
+
+    this.setState({ todos: newTodos });
+  }
+
+  render() {
+    return (
+      <>
+        <Form onSubmit={this.handleFormSubmit} />
+        <Ulist todos={this.state.todos} onClick={this.handleDelete} />
+      </>
+    );
+  }
 }
-
 export default App;
