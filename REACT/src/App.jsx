@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 import { Form } from "./components/Form";
 import { Ulist } from "./components/Ulist";
+import { AuthForm } from "./components/auth_Form";
+import { Header } from "./components/Header";
 
 class App extends React.Component {
   constructor(props) {
@@ -22,19 +24,24 @@ class App extends React.Component {
       { title, done: false, id: +new Date() },
     ];
     this.setState({ todos: newTodos });
+    localStorage.setItem("todos", JSON.stringify(newTodos));
   }
 
   handleDelete(id) {
-    const newTodos = this.state.todos.filter((element) => element.id !== id);
+    const todosFormLs = JSON.parse(localStorage.getItem("todos"));
+    const newTodos = todosFormLs.filter((element) => element.id !== id);
 
     this.setState({ todos: newTodos });
+    localStorage.setItem("todos", JSON.stringify(newTodos));
   }
 
   render() {
     return (
       <>
+        <AuthForm />
+        <Header />
         <Form onSubmit={this.handleFormSubmit} />
-        <Ulist todos={this.state.todos} onClick={this.handleDelete} />
+        <Ulist onClick={this.handleDelete} />
       </>
     );
   }

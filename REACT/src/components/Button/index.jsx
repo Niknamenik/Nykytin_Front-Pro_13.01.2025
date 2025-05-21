@@ -7,6 +7,9 @@ export class Button extends React.Component {
   }
 
   hendleDelete() {
+    if (this.props.title == "Done") {
+      return;
+    }
     this.props.onClick(this.props.id);
   }
 
