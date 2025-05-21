@@ -12,7 +12,6 @@ export class Form extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    // this.props.onSubmit;
     const input = [...event.target].filter(
       (element) => element.id == "input"
     )[0];
