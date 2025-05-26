@@ -1,0 +1,53 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+form {
+  width: 400px;
+  height: fit-content;
+  border: 2px solid rgb(0, 204, 255);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.input {
+  width: 100%;
+}
+input {
+  width: 90%;
+  height: 100%;
+  text-align: right;
+  margin: 10px;
+  font-size: 30px;
+}
+button {
+  width: 80px;
+  border: 1px solid chartreuse;
+}
+.functionality {
+  display: flex;
+}
+.numbers {
+  min-width: 240px;
+}
+.numbers button {
+  width: 33%;
+  height: 25%;
+}
+.operators {
+  width: 80px;
+}
+.operators button {
+  border-color: rgb(255, 166, 0);
+}
+.functionality {
+  margin: 10px;
+}
