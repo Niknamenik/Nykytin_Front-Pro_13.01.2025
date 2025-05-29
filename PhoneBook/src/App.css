@@ -1,6 +1,92 @@
 #root {
-  max-width: 1280px;
+  max-width: 700px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+.slider {
+  min-width: 1400px;
+  display: flex;
+  gap: 50px;
+  position: relative;
+  transition: 1s ease-out;
+}
+thead {
+  font-weight: 700;
+  font-size: 30px;
+  text-align: center;
+}
+table {
+  visibility: hidden;
+  opacity: 0;
+  min-width: 700px;
+  border: 2px solid rgb(0, 225, 255);
+  border-radius: 20px;
+  padding: 20px;
+  transition: 0.5s ease-in;
+}
+tbody td {
+  border-bottom: 1px dashed orange;
+}
+form {
+  visibility: hidden;
+  opacity: 0;
+  max-width: 700px;
+  max-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: 2px dashed orange;
+  padding: 0 50px;
+  border-radius: 15px;
+  transition: 0.5s ease-in;
+}
+input {
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  font-size: 20px;
+  border-radius: 5px;
+  border: none;
+}
+.btns {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+form label {
+  text-align: left;
+  min-width: 600px;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.slide_btns {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -50px;
+}
+.slider.form {
+  left: calc(-100% - 50px);
+  transition: left 1s ease-out;
+}
+.slider.table {
+  left: 0;
+  transition: left 1s ease-out;
+}
+.slider.table table {
+  opacity: 1;
+  visibility: visible;
+}
+.slider.form form {
+  opacity: 1;
+  visibility: visible;
+}
+h2 {
+  margin: 0;
 }
