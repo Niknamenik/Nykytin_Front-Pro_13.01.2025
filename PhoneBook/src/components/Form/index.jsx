@@ -37,7 +37,9 @@ function Form({ onClick }) {
         <input required type="email" id="email" />
       </label>
       <div className="btns">
-        <button onClick={onClick}>Save</button>
+        <button type="submit" onClick={onClick}>
+          Save
+        </button>
         <button type="button" onClick={onClick}>
           Cancel
         </button>
