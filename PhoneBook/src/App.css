@@ -5,21 +5,14 @@
   text-align: center;
   overflow: hidden;
 }
-.slider {
-  min-width: 1400px;
-  display: flex;
-  gap: 50px;
-  position: relative;
-  transition: 1s ease-out;
-}
 thead {
   font-weight: 700;
   font-size: 30px;
   text-align: center;
 }
 table {
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   min-width: 700px;
   border: 2px solid rgb(0, 225, 255);
   border-radius: 20px;
@@ -30,8 +23,8 @@ tbody td {
   border-bottom: 1px dashed orange;
 }
 form {
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   max-width: 700px;
   max-height: 500px;
   display: flex;
@@ -56,6 +49,7 @@ input {
   display: flex;
   width: 30%;
   justify-content: space-between;
+  padding-bottom: 30px;
 }
 form label {
   text-align: left;
@@ -66,28 +60,27 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.slide_btns {
+.pages_btns {
   display: flex;
   justify-content: space-between;
   position: relative;
   top: -25px;
 }
-.slider.form {
-  left: calc(-100% - 50px);
-  transition: left 1s ease-out;
-}
-.slider.table {
-  left: 0;
-  transition: left 1s ease-out;
-}
-.slider.table table {
-  opacity: 1;
-  visibility: visible;
-}
-.slider.form form {
-  opacity: 1;
-  visibility: visible;
-}
 h2 {
-  margin: 0;
+  margin: 20px;
+}
+button[type="submit"] {
+  color: #646cff;
+}
+.active {
+  background: #fff;
+}
+table button {
+  background: rgba(255, 0, 0, 0.678);
+  margin-right: 10px;
+}
+table a {
+  background: rgba(0, 0, 255, 0.678);
+  margin-right: 10px;
+  color: #fff;
 }

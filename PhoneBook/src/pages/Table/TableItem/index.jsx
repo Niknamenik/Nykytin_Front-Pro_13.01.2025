@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Button from "./Button";
 
 function TableItem({ user }) {
@@ -8,6 +9,7 @@ function TableItem({ user }) {
       <td>{user.phone}</td>
       <td>
         <Button id={user.id} user={user} title={"Delete"}></Button>
+        <Link to={`/user/${user.id}`}>Edit</Link>
       </td>
     </tr>
   );
