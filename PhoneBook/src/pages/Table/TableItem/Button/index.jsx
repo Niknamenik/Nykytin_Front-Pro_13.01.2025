@@ -8,8 +8,8 @@ function Button({ id, title }) {
       const usersFromLS = JSON.parse(localStorage.getItem("users"));
       const newUsers = usersFromLS.filter((user) => user.id !== id);
       const currentUser = usersFromLS.filter((user) => user.id === id)[0];
-      setUsers(newUsers);
       localStorage.setItem("users", JSON.stringify(newUsers));
+      setUsers(newUsers);
       alert(`User with name: ${currentUser.name} got deleted`);
     } else {
       alert(`Deleting declined`);
