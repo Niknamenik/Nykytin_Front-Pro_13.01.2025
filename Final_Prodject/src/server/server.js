@@ -15,6 +15,56 @@ const user = {
   password: "1234",
 };
 
+const laptops = [
+  {
+    id: 1,
+    category: "Laptops",
+    name: "Dell XPS 13",
+    quantity: 10,
+    price: 1200,
+    description:
+      "Ultra-thin and lightweight laptop with a 13-inch display and high performance.",
+  },
+  {
+    id: 2,
+    category: "Laptops",
+    name: "Apple MacBook Air M2",
+    quantity: 5,
+    price: 1500,
+    description:
+      "Lightweight laptop with Apple M2 chip, excellent battery life, and Retina display.",
+  },
+  {
+    id: 3,
+    category: "Laptops",
+    name: "HP Spectre x360",
+    quantity: 7,
+    price: 1300,
+    description: "Convertible laptop with a touchscreen and stylish design.",
+  },
+  {
+    id: 4,
+    category: "Laptops",
+    name: "Lenovo ThinkPad X1 Carbon",
+    quantity: 8,
+    price: 1400,
+    description: "Business laptop with durable build and excellent keyboard.",
+  },
+  {
+    id: 5,
+    category: "Laptops",
+    name: "ASUS ROG Zephyrus G14",
+    quantity: 4,
+    price: 1600,
+    description:
+      "Gaming laptop with powerful processor and graphics card for heavy workloads.",
+  },
+];
+
+app.get("/Table_Products", (req, res) => {
+  res.json(laptops);
+});
+
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
 
