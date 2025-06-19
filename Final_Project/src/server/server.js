@@ -59,6 +59,15 @@ const laptops = [
     description:
       "Gaming laptop with powerful processor and graphics card for heavy workloads.",
   },
+  {
+    id: 6,
+    category: "Laptops",
+    name: "Apple MacBook Air",
+    quantity: 5,
+    price: 1200,
+    description:
+      "Lightweight laptop with excellent battery life, and Retina display.",
+  },
 ];
 
 app.get("/Table_Products", (req, res) => {
