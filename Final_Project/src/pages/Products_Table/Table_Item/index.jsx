@@ -12,6 +12,7 @@ export function Table_Item({ product }) {
       <td className="actions">
         <span>
           <TransitionsAddEditModal
+            curProduct={product}
             title={"Edit product"}
             view={
               <svg
@@ -27,8 +28,10 @@ export function Table_Item({ product }) {
                 />
               </svg>
             }
+            action={"edit"}
           />
           <TransitionsDelModal
+            curProduct={product}
             view={
               <svg
                 width="20"

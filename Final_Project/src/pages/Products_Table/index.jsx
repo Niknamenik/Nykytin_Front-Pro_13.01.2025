@@ -4,7 +4,10 @@ import { Table_Item } from "./Table_Item";
 import TransitionsAddEditModal from "../../components/transition_modal/add/addEdit_modal";
 
 export function Table() {
-  const products = useSelector((state) => state.products.items);
+  const products = useSelector((state) => state.products.items)
+    ? useSelector((state) => state.products.items)
+    : [];
+
   return (
     <>
       <div className="logo">
@@ -104,6 +107,7 @@ export function Table() {
               <span>Add product</span>
             </span>
           }
+          action={"add"}
         />
       </div>
       <div className="header">

@@ -4,6 +4,9 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
+import { useDispatch, useSelector } from "react-redux";
+import { setProducts } from "../../../store/slices/productsSlice";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -17,10 +20,21 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsDelModal({ view }) {
+export default function TransitionsDelModal({ view, curProduct }) {
+  const productListStore = useSelector((state) => state.products.items);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const dispatch = useDispatch();
+
+  async function handleDel() {
+    const newProdList = productListStore.filter(
+      (product) => product !== curProduct
+    );
+    localStorage.setItem("products", JSON.stringify(newProdList));
+    dispatch(setProducts(newProdList));
+    await axios.post("http://localhost:3000/Table_Products", newProdList);
+  }
 
   function closeModalHendler() {
     setOpen(false);
@@ -50,12 +64,14 @@ export default function TransitionsDelModal({ view }) {
             <div className="confirm_btns">
               <button
                 type="button"
-                id="confirm_cancel"
+                id="alert_cancel"
                 onClick={closeModalHendler}
               >
                 Cancel
               </button>
-              <button id="confirm_submit">Submit</button>
+              <button onClick={handleDel} id="alert_submit">
+                Submit
+              </button>
             </div>
           </Box>
         </Fade>

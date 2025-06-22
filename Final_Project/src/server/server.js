@@ -15,7 +15,7 @@ const user = {
   password: "1234",
 };
 
-const laptops = [
+let products = [
   {
     id: 1,
     category: "Laptops",
@@ -71,7 +71,7 @@ const laptops = [
 ];
 
 app.get("/Table_Products", (req, res) => {
-  res.json(laptops);
+  res.json(products);
 });
 
 app.post("/login", (req, res) => {
@@ -92,6 +92,11 @@ app.post("/login", (req, res) => {
   }
 });
 
+app.post("/Table_Products", (req, res) => {
+  const newProductsList = req.body;
+  products = newProductsList;
+  console.log(products);
+});
 app.listen(PORT, () => {
   console.log(`Сервер запущено на http://localhost:${PORT}`);
 });

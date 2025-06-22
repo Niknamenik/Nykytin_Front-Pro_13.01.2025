@@ -5,9 +5,9 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import { Field, Form, Formik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../../store/slices/productsSlice";
-
+import axios from "axios";
 const style = {
   position: "absolute",
   top: "50%",
@@ -20,10 +20,16 @@ const style = {
   p: 4,
 };
 
-export default function TransitionsAddEditModal({ title, view }) {
+export default function TransitionsAddEditModal({
+  curProduct,
+  title,
+  view,
+  action,
+}) {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const productList = useSelector((state) => state.products.items);
   const dispatch = useDispatch();
 
   return (
@@ -63,24 +69,41 @@ export default function TransitionsAddEditModal({ title, view }) {
             </div>
             <Formik
               initialValues={{
-                category: "",
-                name: "",
-                quantity: "",
-                price: "",
-                description: "",
+                category: curProduct ? curProduct.category : "",
+                name: curProduct ? curProduct.name : "",
+                quantity: curProduct ? curProduct.quantity : "",
+                price: curProduct ? curProduct.price : "",
+                description: curProduct ? curProduct.description : "",
               }}
               onSubmit={(value, { resetForm }) => {
-                let prodFromLs = [];
-                prodFromLs = JSON.parse(localStorage.getItem("products"));
-                value.id = +new Date();
-                prodFromLs.push(value);
-                localStorage.setItem("products", JSON.stringify(prodFromLs));
-                dispatch(setProducts(prodFromLs));
-                setOpen(false);
-                resetForm();
+                if (action == "add") {
+                  value.id = +new Date();
+                  const newProductList = [...productList, value];
+                  submiting(newProductList);
+                } else if (action == "edit") {
+                  const newProductList = productList.map((product) => {
+                    return product.id == curProduct.id
+                      ? { id: curProduct.id, ...value }
+                      : product;
+                  });
+                  submiting(newProductList);
+                }
+                async function submiting(newProductList) {
+                  localStorage.setItem(
+                    "products",
+                    JSON.stringify(newProductList)
+                  );
+                  dispatch(setProducts(newProductList));
+                  setOpen(false);
+                  resetForm();
+                  await axios.post(
+                    "http://localhost:3000/Table_Products",
+                    newProductList
+                  );
+                }
               }}
             >
-              <Form action="no-action" className="form">
+              <Form className="form">
                 <label htmlFor="prod_category">
                   <span>Categoty</span>
                   <Field type="text" name="category" id="prod_categoty" />

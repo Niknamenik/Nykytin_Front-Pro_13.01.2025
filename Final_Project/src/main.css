@@ -272,9 +272,9 @@ div .css-1wnsr1i {
   border: none;
   font-family: "Inter", sans-serif;
 }
-#confirm_cancel {
+#alert_cancel {
   background: #d8d5d5;
 }
-#confirm_submit {
+#alert_submit {
   background: #db0000;
 }
