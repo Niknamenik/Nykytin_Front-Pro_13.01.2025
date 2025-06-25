@@ -4,12 +4,21 @@ import { Table_Item } from "./Table_Item";
 import TransitionsAddEditModal from "../../components/transition_modal/add/addEdit_modal";
 import { useProductsLoader } from "../../store/useProductsLoader";
 import { Link } from "react-router";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
 
 export function Table() {
   useProductsLoader();
   const products = useSelector((state) => state.products.items);
+  const open = useSelector((state) => state.products.loading);
   return (
     <>
+      <Backdrop
+        sx={(theme) => ({ color: "#05BC52", zIndex: theme.zIndex.drawer + 1 })}
+        open={open}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop>
       <div className="logo">
         <svg
           width="240"

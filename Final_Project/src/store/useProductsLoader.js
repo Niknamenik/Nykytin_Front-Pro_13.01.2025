@@ -7,8 +7,8 @@ export function useProductsLoader() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(setLoading(true));
     const fetchProducts = async () => {
-      dispatch(setLoading(true));
       const productsFromLS = JSON.parse(localStorage.getItem("products"));
 
       if (productsFromLS) {
