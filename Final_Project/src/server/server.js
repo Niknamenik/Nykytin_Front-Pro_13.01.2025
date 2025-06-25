@@ -24,6 +24,8 @@ let products = [
     price: 1200,
     description:
       "Ultra-thin and lightweight laptop with a 13-inch display and high performance.",
+    image: null,
+    status: "Готовий до відправки",
   },
   {
     id: 2,
@@ -33,6 +35,8 @@ let products = [
     price: 1500,
     description:
       "Lightweight laptop with Apple M2 chip, excellent battery life, and Retina display.",
+    image: null,
+    status: "Готовий до відправки",
   },
   {
     id: 3,
@@ -41,6 +45,8 @@ let products = [
     quantity: 7,
     price: 1300,
     description: "Convertible laptop with a touchscreen and stylish design.",
+    image: null,
+    status: "Готовий до відправки",
   },
   {
     id: 4,
@@ -49,6 +55,8 @@ let products = [
     quantity: 8,
     price: 1400,
     description: "Business laptop with durable build and excellent keyboard.",
+    image: null,
+    status: "Готовий до відправки",
   },
   {
     id: 5,
@@ -58,6 +66,8 @@ let products = [
     price: 1600,
     description:
       "Gaming laptop with powerful processor and graphics card for heavy workloads.",
+    image: null,
+    status: "Готовий до відправки",
   },
   {
     id: 6,
@@ -67,6 +77,8 @@ let products = [
     price: 1200,
     description:
       "Lightweight laptop with excellent battery life, and Retina display.",
+    image: null,
+    status: "Готовий до відправки",
   },
 ];
 

@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import { Field, Form, Formik } from "formik";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../../../store/slices/productsSlice";
 import axios from "axios";
@@ -74,20 +74,40 @@ export default function TransitionsAddEditModal({
                 quantity: curProduct ? curProduct.quantity : "",
                 price: curProduct ? curProduct.price : "",
                 description: curProduct ? curProduct.description : "",
+                image: curProduct ? curProduct.image : "",
+                status: curProduct ? curProduct.status : "Готовий до відправки",
               }}
-              onSubmit={(value, { resetForm }) => {
-                if (action == "add") {
-                  value.id = +new Date();
-                  const newProductList = [...productList, value];
-                  submiting(newProductList);
-                } else if (action == "edit") {
+              onSubmit={async (value, { resetForm }) => {
+                if (action === "add") {
+                  const file = value.image;
+
+                  if (file) {
+                    const reader = new FileReader();
+                    reader.onloadend = async () => {
+                      const base64Image = reader.result;
+                      value.id = +new Date();
+                      value.image = base64Image;
+                      value.status = "Готовий до відправки";
+                      console.log(value);
+
+                      const newProductList = [...productList, value];
+                      await submiting(newProductList);
+                    };
+                    reader.readAsDataURL(file);
+                  } else {
+                    value.id = +new Date();
+                    const newProductList = [...productList, value];
+                    await submiting(newProductList);
+                  }
+                } else if (action === "edit") {
                   const newProductList = productList.map((product) => {
-                    return product.id == curProduct.id
+                    return product.id === curProduct.id
                       ? { id: curProduct.id, ...value }
                       : product;
                   });
-                  submiting(newProductList);
+                  await submiting(newProductList);
                 }
+
                 async function submiting(newProductList) {
                   localStorage.setItem(
                     "products",
@@ -96,6 +116,7 @@ export default function TransitionsAddEditModal({
                   dispatch(setProducts(newProductList));
                   setOpen(false);
                   resetForm();
+
                   await axios.post(
                     "http://localhost:3000/Table_Products",
                     newProductList
@@ -103,40 +124,118 @@ export default function TransitionsAddEditModal({
                 }
               }}
             >
-              <Form className="form">
-                <label htmlFor="prod_category">
-                  <span>Categoty</span>
-                  <Field type="text" name="category" id="prod_categoty" />
-                </label>
-                <label htmlFor="prod_name">
-                  <span>Name</span>
-                  <Field type="text" name="name" id="prod_name" />
-                </label>
-                <label htmlFor="prod_quantity">
-                  <span>Qantity</span>
-                  <Field type="text" name="quantity" id="prod_quantity" />
-                </label>
-                <label htmlFor="prod_price">
-                  <span>Price</span>
-                  <Field type="text" name="price" id="prod_price" />
-                </label>
-                <label htmlFor="prod_description">
-                  <span>Description</span>
-                  <Field
-                    as="textarea"
-                    name="description"
-                    id="prod_description"
-                  ></Field>
-                </label>
-                <div className="form_btns">
-                  <button type="button" id="form_cancel" onClick={handleClose}>
-                    Cancel
-                  </button>
-                  <button type="submit" id="form_submit">
-                    Submit
-                  </button>
-                </div>
-              </Form>
+              {({ setFieldValue }) => (
+                <Form className="form">
+                  <label htmlFor="prod_category">
+                    <span>Category</span>
+                    <Field
+                      type="text"
+                      name="category"
+                      id="prod_category"
+                      validate={(value) => {
+                        if (!value) return "This field is required";
+                      }}
+                    />
+                    <ErrorMessage
+                      name="category"
+                      component="div"
+                      className="error"
+                    />
+                  </label>
+                  <label htmlFor="prod_name">
+                    <span>Name</span>
+                    <Field
+                      type="text"
+                      name="name"
+                      id="prod_name"
+                      validate={(value) => {
+                        if (!value) return "This field is required";
+                      }}
+                    />
+                    <ErrorMessage
+                      name="name"
+                      component="div"
+                      className="error"
+                    />
+                  </label>
+                  <label htmlFor="prod_quantity">
+                    <span>Quantity</span>
+                    <Field
+                      type="text"
+                      name="quantity"
+                      id="prod_quantity"
+                      validate={(value) => {
+                        if (!value) return "This field is required";
+                      }}
+                    />
+                    <ErrorMessage
+                      name="quantity"
+                      component="div"
+                      className="error"
+                    />
+                  </label>
+                  <label htmlFor="prod_price">
+                    <span>Price</span>
+                    <Field
+                      type="text"
+                      name="price"
+                      id="prod_price"
+                      validate={(value) => {
+                        if (!value) return "This field is required";
+                      }}
+                    />
+                    <ErrorMessage
+                      name="price"
+                      component="div"
+                      className="error"
+                    />
+                  </label>
+                  <label htmlFor="prod_description">
+                    <span>Description</span>
+                    <Field
+                      as="textarea"
+                      name="description"
+                      id="prod_description"
+                      validate={(value) => {
+                        if (!value) return "This field is required";
+                      }}
+                    />
+                    <ErrorMessage
+                      name="description"
+                      component="div"
+                      className="error"
+                    />
+                  </label>
+                  {action == "add" ? (
+                    <label htmlFor="image">
+                      <span>Image</span>
+                      <input
+                        type="file"
+                        name="image"
+                        id="image"
+                        required
+                        onChange={(event) => {
+                          setFieldValue("image", event.currentTarget.files[0]);
+                        }}
+                      />
+                    </label>
+                  ) : (
+                    ""
+                  )}
+                  <div className="form_btns">
+                    <button
+                      type="button"
+                      id="form_cancel"
+                      onClick={handleClose}
+                    >
+                      Cancel
+                    </button>
+                    <button type="submit" id="form_submit">
+                      Submit
+                    </button>
+                  </div>
+                </Form>
+              )}
             </Formik>
           </Box>
         </Fade>

@@ -1,17 +1,16 @@
-import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { setPassword, setUsername } from "../../store/slices/productsSlice";
+import { useState } from "react";
 
 function Login() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const username = useSelector((state) => state.products.user.username);
+  const password = useSelector((state) => state.products.user.password);
+  const dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
 
-  const showPassword = () => {
-    const input = document.querySelector("#password");
-    input.type == "password"
-      ? (input.type = "text")
-      : (input.type = "password");
-  };
-
+  const navigate = useNavigate();
   const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -25,8 +24,10 @@ function Login() {
       localStorage.setItem("token", token);
 
       alert("Успішний вхід!");
+      navigate("/product_table");
     } catch (err) {
       alert("Невірні дані");
+      console.log(err);
     }
   };
 
@@ -98,34 +99,68 @@ function Login() {
             placeholder="Username"
             value={username}
             required
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={(e) => dispatch(setUsername(e.target.value))}
           />
           <div className="ipnutPassword">
             <input
               id="password"
-              type="password"
+              type={visible ? "text" : "password"}
               placeholder="Password"
               value={password}
               required
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => dispatch(setPassword(e.target.value))}
             />
-            <button onClick={showPassword} type="button" id="showBtn">
-              <svg
-                width="34"
-                height="24"
-                viewBox="0 0 34 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M22.3125 11.6875C22.3125 13.0965 21.7528 14.4477 20.7565 15.444C19.7602 16.4403 18.409 17 17 17C15.591 17 14.2398 16.4403 13.2435 15.444C12.2472 14.4477 11.6875 13.0965 11.6875 11.6875C11.6875 10.2785 12.2472 8.92728 13.2435 7.931C14.2398 6.93471 15.591 6.375 17 6.375C18.409 6.375 19.7602 6.93471 20.7565 7.931C21.7528 8.92728 22.3125 10.2785 22.3125 11.6875Z"
-                  fill="#44B26F"
-                />
-                <path
-                  d="M0 11.6875C0 11.6875 6.375 0 17 0C27.625 0 34 11.6875 34 11.6875C34 11.6875 27.625 23.375 17 23.375C6.375 23.375 0 11.6875 0 11.6875ZM17 19.125C18.9725 19.125 20.8643 18.3414 22.2591 16.9466C23.6539 15.5518 24.4375 13.66 24.4375 11.6875C24.4375 9.71495 23.6539 7.8232 22.2591 6.42839C20.8643 5.03359 18.9725 4.25 17 4.25C15.0275 4.25 13.1357 5.03359 11.7409 6.42839C10.3461 7.8232 9.5625 9.71495 9.5625 11.6875C9.5625 13.66 10.3461 15.5518 11.7409 16.9466C13.1357 18.3414 15.0275 19.125 17 19.125Z"
-                  fill="#44B26F"
-                />
-              </svg>
+            <button
+              onClick={() => {
+                setVisible(!visible);
+              }}
+              type="button"
+              id="showBtn"
+            >
+              {visible ? (
+                <svg
+                  width="34"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.3125 11.6875C22.3125 13.0965 21.7528 14.4477 20.7565 15.444C19.7602 16.4403 18.409 17 17 17C15.591 17 14.2398 16.4403 13.2435 15.444C12.2472 14.4477 11.6875 13.0965 11.6875 11.6875C11.6875 10.2785 12.2472 8.92728 13.2435 7.931C14.2398 6.93471 15.591 6.375 17 6.375C18.409 6.375 19.7602 6.93471 20.7565 7.931C21.7528 8.92728 22.3125 10.2785 22.3125 11.6875Z"
+                    fill="#44B26F"
+                  />
+                  <path
+                    d="M0 11.6875C0 11.6875 6.375 0 17 0C27.625 0 34 11.6875 34 11.6875C34 11.6875 27.625 23.375 17 23.375C6.375 23.375 0 11.6875 0 11.6875ZM17 19.125C18.9725 19.125 20.8643 18.3414 22.2591 16.9466C23.6539 15.5518 24.4375 13.66 24.4375 11.6875C24.4375 9.71495 23.6539 7.8232 22.2591 6.42839C20.8643 5.03359 18.9725 4.25 17 4.25C15.0275 4.25 13.1357 5.03359 11.7409 6.42839C10.3461 7.8232 9.5625 9.71495 9.5625 11.6875C9.5625 13.66 10.3461 15.5518 11.7409 16.9466C13.1357 18.3414 15.0275 19.125 17 19.125Z"
+                    fill="#44B26F"
+                  />
+                  <line
+                    x1="3"
+                    y1="21"
+                    x2="31"
+                    y2="3"
+                    stroke="#FF0000"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  width="34"
+                  height="24"
+                  viewBox="0 0 34 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M22.3125 11.6875C22.3125 13.0965 21.7528 14.4477 20.7565 15.444C19.7602 16.4403 18.409 17 17 17C15.591 17 14.2398 16.4403 13.2435 15.444C12.2472 14.4477 11.6875 13.0965 11.6875 11.6875C11.6875 10.2785 12.2472 8.92728 13.2435 7.931C14.2398 6.93471 15.591 6.375 17 6.375C18.409 6.375 19.7602 6.93471 20.7565 7.931C21.7528 8.92728 22.3125 10.2785 22.3125 11.6875Z"
+                    fill="#44B26F"
+                  />
+                  <path
+                    d="M0 11.6875C0 11.6875 6.375 0 17 0C27.625 0 34 11.6875 34 11.6875C34 11.6875 27.625 23.375 17 23.375C6.375 23.375 0 11.6875 0 11.6875ZM17 19.125C18.9725 19.125 20.8643 18.3414 22.2591 16.9466C23.6539 15.5518 24.4375 13.66 24.4375 11.6875C24.4375 9.71495 23.6539 7.8232 22.2591 6.42839C20.8643 5.03359 18.9725 4.25 17 4.25C15.0275 4.25 13.1357 5.03359 11.7409 6.42839C10.3461 7.8232 9.5625 9.71495 9.5625 11.6875C9.5625 13.66 10.3461 15.5518 11.7409 16.9466C13.1357 18.3414 15.0275 19.125 17 19.125Z"
+                    fill="#44B26F"
+                  />
+                </svg>
+              )}
             </button>
           </div>
           <button id="login_btn" type="submit">
@@ -136,5 +171,4 @@ function Login() {
     </div>
   );
 }
-
 export default Login;

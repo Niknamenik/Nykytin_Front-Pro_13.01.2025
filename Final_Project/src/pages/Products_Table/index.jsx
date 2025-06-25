@@ -1,13 +1,13 @@
 import { useSelector } from "react-redux";
-import { Header } from "./Header";
+import Header from "./Header";
 import { Table_Item } from "./Table_Item";
 import TransitionsAddEditModal from "../../components/transition_modal/add/addEdit_modal";
+import { useProductsLoader } from "../../store/useProductsLoader";
+import { Link } from "react-router";
 
 export function Table() {
-  const products = useSelector((state) => state.products.items)
-    ? useSelector((state) => state.products.items)
-    : [];
-
+  useProductsLoader();
+  const products = useSelector((state) => state.products.items);
   return (
     <>
       <div className="logo">
@@ -70,7 +70,7 @@ export function Table() {
         </svg>
       </div>
       <div className="link_btns">
-        <button>
+        <Link to={"/preview_table"}>
           <svg
             width="25"
             height="25"
@@ -85,7 +85,7 @@ export function Table() {
           </svg>
 
           <span>Preview</span>
-        </button>
+        </Link>
         <TransitionsAddEditModal
           title={"Add product"}
           view={
