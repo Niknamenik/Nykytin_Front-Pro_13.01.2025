@@ -339,3 +339,6 @@ div .css-1wnsr1i {
   align-items: center;
   gap: 12px;
 }
+input#image {
+  padding: 5px 0 0 0;
+}
